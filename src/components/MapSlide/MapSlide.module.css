@@ -1,0 +1,17 @@
+.backGround{
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
+    url("../../assets/images/dhaka_line.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30rem;
+  margin-bottom: 5rem;
+  padding: 3rem 0 0;
+}
+
+.container{
+
+}

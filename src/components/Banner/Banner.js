@@ -22,9 +22,8 @@ const Banner = () => {
                 <div className={styles.filterContainer}>
                     <div className={styles.filterComponent}>
                         <TextInput
-                            placeholder="Your name"
-                            label="Full name"
-                            withAsterisk
+                            placeholder="Location"
+                            label="Location"
                         />
                     </div>
                     <div className={styles.doubleInput}>
