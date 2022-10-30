@@ -1,0 +1,9 @@
+.blogContainer{
+    margin: 3rem 0;
+}
+
+.infoContainer{
+    padding: 2rem;
+    height: 60%;
+    background-color: rgb(225, 228, 230);
+}

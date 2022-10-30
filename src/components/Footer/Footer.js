@@ -1,10 +1,14 @@
 import React from 'react';
+import { useScrollIntoView } from '@mantine/hooks';
 import styles from './Footer.module.css'
 import { IconPhone, IconChevronRight, IconMail, IconChevronUp, IconBrandFacebook, IconBrandTwitter, IconBrandInstagram, IconBrandLinkedin, IconBrandYoutube, IconMapPin } from '@tabler/icons';
 import { Container, Grid } from '@mantine/core'
 
 
 const Footer = () => {
+
+    const { scrollIntoView } = useScrollIntoView();
+
     return (
         <footer className={styles.footer}>
             <Container size='lg'>
@@ -80,7 +84,7 @@ const Footer = () => {
                 </Grid>
                 <Grid className={styles.upBtnContainer}>
                     <span>©copyright by Hourent.</span>
-                    <button className={styles.upBtn}>
+                    <button onClick={() => scrollIntoView()} className={styles.upBtn}>
                         <IconChevronUp size={60} />
                     </button>
                     <div>

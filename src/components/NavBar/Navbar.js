@@ -39,14 +39,14 @@ const NavBar = () => {
             </div>
             <Container size='lg'>
                 <div className={styles.navContainer}>
-                    <div>
+                    <Link to='/'>
                         <img src={logo} width='150px' alt="" />
-                    </div>
+                    </Link>
                     <div>
-                        <Link className={styles.navLink} to='/home'>Home</Link>
+                        <Link className={styles.navLink} to='/'>Home</Link>
                         <Menu shadow="md" width={200} trigger='hover'>
                             <Menu.Target>
-                                <Link className={styles.navLink} to='/home'>Listings</Link>
+                                <Link className={styles.navLink} to='/listing'>Listings</Link>
                             </Menu.Target>
                             <Menu.Dropdown>
                                 <Menu.Item component={Link} to='/rent-properties'>
@@ -75,11 +75,17 @@ const NavBar = () => {
                         </Menu>
                         <Menu shadow="md" width={200} trigger='hover'>
                             <Menu.Target>
-                                <Link className={styles.navLink} to='/home'>Pages</Link>
+                                <Link className={styles.navLink}>Pages</Link>
                             </Menu.Target>
                             <Menu.Dropdown>
                                 <Menu.Item component={Link} to='/blog'>
                                     Blog
+                                </Menu.Item>
+                                <Menu.Item component={Link} to='/contact'>
+                                    Contact
+                                </Menu.Item>
+                                <Menu.Item component={Link} to='/about'>
+                                    About Us
                                 </Menu.Item>
                                 <Menu.Item component={Link} to='/featured-house'>
                                     Featured House

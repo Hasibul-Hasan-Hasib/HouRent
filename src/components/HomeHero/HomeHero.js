@@ -8,7 +8,7 @@ import { Button, Container, Grid } from '@mantine/core';
 const HomeHero = () => {
     return (
         <Container size='lg'>
-            <Grid className={styles.homeHero} gutter="xl" justify="space-between" align="center">
+            <Grid className={styles.homeHero} justify="space-between" align="center">
                 <Grid.Col span={5}>
                     <h1 className={styles.title}>Our Customer Always Come First</h1>
                     <p>Utilizing his exceptional experience and knowledge
