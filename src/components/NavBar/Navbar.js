@@ -92,7 +92,7 @@ const NavBar = () => {
                                 </Menu.Item>
                             </Menu.Dropdown>
                         </Menu>
-                        <Button sx='margin-left: 1rem'>Login</Button>
+                        <Button component={Link} to='/login' sx='margin-left: 1rem'>Login</Button>
                     </div>
                 </div>
             </Container>
