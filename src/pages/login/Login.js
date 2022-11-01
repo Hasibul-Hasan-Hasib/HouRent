@@ -41,7 +41,7 @@ const Login = (props) => {
                 <Grid.Col span={6}>
                     <img src={IMG} alt="" />
                 </Grid.Col>
-                <Grid.Col span={6}>
+                <Grid.Col span={6} style={{padding:'0 4rem '}}>
                     <Text size="lg" weight={500}>
                         Welcome to Hourent, {type} with
                     </Text>
