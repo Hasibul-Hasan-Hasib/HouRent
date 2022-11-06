@@ -9,6 +9,7 @@ import About from './pages/about/About';
 import NotFound from './pages/notFound/NotFound';
 import Login from './pages/login/Login';
 import Properties from './pages/properties/Properties';
+import Property from './pages/property/Property';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/properties" element={<Properties />} />
+        <Route path="/property" element={<Property />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />

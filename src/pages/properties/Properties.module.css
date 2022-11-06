@@ -4,6 +4,8 @@
 }
 
 .cardContainer {
+  color: black;
+  text-decoration: none;
   background-color: #eee;
   margin-bottom: 2rem;
 }

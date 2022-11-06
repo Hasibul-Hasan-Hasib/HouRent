@@ -1,0 +1,37 @@
+.container{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.mapIcon{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.descContainer{
+    margin: 2rem 0;
+    border-radius: 10px;
+    background-color: aliceblue;
+    padding: 1rem;
+}
+
+
+.infoContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid gray;
+}
+
+.inputElements{
+    margin: 1rem 0;
+}
+
+
+.bookingSectionContainer{
+    margin-top: 20vh;
+    padding: 1rem 2rem ;
+    border-radius: 10px;
+    background: linear-gradient(to top, #e0eafc, #c2d6f3);
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Properties.module.css'
 import { Button, Container, Grid, Pagination, Select, Slider, TextInput } from '@mantine/core';
 import { IconRuler2 } from '@tabler/icons';
@@ -8,7 +9,7 @@ const Properties = () => {
         <Container size='lg' className={styles.container}>
             <Grid columns={24} align='flex-start' justify='space-between'>
                 <Grid.Col span={15}>
-                    <Grid align='center' className={styles.cardContainer}>
+                    <Grid align='center' className={styles.cardContainer} component={Link} to='/property'>
                         <Grid.Col span={5}>
                             <img
                                 style={{ width: '100%' }}
@@ -25,7 +26,7 @@ const Properties = () => {
                             <h2>BDT 276,875</h2>
                         </Grid.Col>
                     </Grid>
-                    <Grid align='center' className={styles.cardContainer}>
+                    <Grid align='center' className={styles.cardContainer} component={Link} to='/property'>
                         <Grid.Col span={5}>
                             <img
                                 style={{ width: '100%' }}
@@ -42,7 +43,7 @@ const Properties = () => {
                             <h2>BDT 276,875</h2>
                         </Grid.Col>
                     </Grid>
-                    <Grid align='center' className={styles.cardContainer}>
+                    <Grid align='center' className={styles.cardContainer} component={Link} to='/property'>
                         <Grid.Col span={5}>
                             <img
                                 style={{ width: '100%' }}
@@ -59,7 +60,7 @@ const Properties = () => {
                             <h2>BDT 276,875</h2>
                         </Grid.Col>
                     </Grid>
-                    <Grid align='center' className={styles.cardContainer}>
+                    <Grid align='center' className={styles.cardContainer} component={Link} to='/property'>
                         <Grid.Col span={5}>
                             <img
                                 style={{ width: '100%' }}
@@ -76,7 +77,7 @@ const Properties = () => {
                             <h2>BDT 276,875</h2>
                         </Grid.Col>
                     </Grid>
-                    <Grid align='center' className={styles.cardContainer}>
+                    <Grid align='center' className={styles.cardContainer} component={Link} to='/property'>
                         <Grid.Col span={5}>
                             <img
                                 style={{ width: '100%' }}
