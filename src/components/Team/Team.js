@@ -32,18 +32,18 @@ const Team = () => {
                         <div className={styles.containerInner}>
                             <img
                                 className={styles.circle}
-                                src='https://images.pexels.com/photos/6109124/pexels-photo-6109124.jpeg?cs=srgb&dl=pexels-polina-kovaleva-6109124.jpg&fm=jpg&_gl=1*fatkxe*_ga*MjA0NzY5MjA0OC4xNjYzNDY5MTA0*_ga_8JE65Q40S6*MTY2NzA3NDg0OS43LjEuMTY2NzA3NTE3NS4wLjAuMA..'
+                                src='https://images.pexels.com/photos/4000421/pexels-photo-4000421.jpeg?cs=srgb&dl=pexels-wendy-wei-4000421.jpg&fm=jpg&_gl=1*1l4t47d*_ga*MjA0NzY5MjA0OC4xNjYzNDY5MTA0*_ga_8JE65Q40S6*MTY2NzY4MjAwMi4xMC4xLjE2Njc2ODIwNTkuMC4wLjA.'
                                 alt=''
                             />
                             <img
-                                className={`${styles.img} ${styles.img1}`}
-                                src='https://raw.githubusercontent.com/Hasibul-Hasan-Hasib/HSB-BLOGS/main/src/Assets/Images/2.png'
+                                className={`${styles.img} ${styles.img2}`}
+                                src={require('../../assets/images/IMG_20220507_171135-removebg-preview.png')}
                                 alt=''
                             />
                         </div>
                     </div>
                     <div class={styles.divider}></div>
-                    <div class={styles.name}>Hasib</div>
+                    <div class={styles.name}>Sopnil</div>
                 </div>
                 <div className={styles.person}>
                     <div className={styles.container}>

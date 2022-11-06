@@ -15,7 +15,7 @@ const HomeHero = () => {
                         of the luxury waterfront markets, Roland serves an
                         extensive and elite worldwide client base. He enjoy
                         a reputation as a tenacious Broker.</p>
-                    <Button>View Reviews</Button>
+                    <Button color='cyan'>View Reviews</Button>
                 </Grid.Col>
                 <Grid.Col span={6}>
                     <ReactPlayer

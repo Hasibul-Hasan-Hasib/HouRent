@@ -1,30 +1,26 @@
-.backGround {
-  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8)),
-    url("../../assets/images/dhaka_line_crop.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  height: 40rem;
+.container {
+  background: linear-gradient(to bottom, #e0eafc, #c2d6f3);
   margin-bottom: 8rem;
-  padding: 2rem 0 0;
+  padding: 1rem 5rem;
+  border-radius: 15px;
   text-align: center;
 }
 
 .title {
   font-size: 2.5rem;
   margin-bottom: 3.5rem;
-  color: rgb(52, 52, 52);
 }
 
 .mapContainer {
-  background-color: aliceblue;
-  height: 25rem;  
+  background-color: white;
   text-align: left;
-  border-radius: 0 0 10px 10px;
+  border-radius: 10px;
 }
 
-.infoContainer {
-  margin: 1rem;
+.info {
+  text-align: center;
+  padding: 1rem 0 1.5rem;
+  margin: 0;
 }
 
 .listing {
@@ -43,4 +39,5 @@
 .img {
   width: 100%;
   height: 18rem;
+  border-radius: 10px 10px 0 0;
 }

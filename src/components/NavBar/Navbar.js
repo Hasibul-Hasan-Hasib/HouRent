@@ -1,24 +1,24 @@
 import React from 'react';
-import styles from './NavBar.module.css'
+import styles from './NavBar.module.css';
 import { Link } from 'react-router-dom';
-import {
-    IconBrandFacebook,
-    IconBrandTwitter,
-    IconBrandYoutube,
-    IconBrandLinkedin,
-    IconBrandInstagram,
-    IconPhone,
-    IconMapPin,
-} from '@tabler/icons'
-import logo from '../../assets/logo/logo.png'
-import { Button, Container, Menu } from '@mantine/core'
+import logo from '../../assets/logo/logo.png';
+import { Button, Container, Menu } from '@mantine/core';
+// import {
+//     IconBrandFacebook,
+//     IconBrandTwitter,
+//     IconBrandYoutube,
+//     IconBrandLinkedin,
+//     IconBrandInstagram,
+//     IconPhone,
+//     IconMapPin,
+// } from '@tabler/icons'
 
 
 
 const NavBar = () => {
     return (
         <>
-            <div className={styles.navBack}>
+            {/* <div className={styles.navBack}>
                 <Container size='lg' className={styles.socialContainer}>
                     <div className={styles.align}>
                         <Link className={styles.socialLink}><IconBrandFacebook size={24} /></Link>
@@ -36,32 +36,26 @@ const NavBar = () => {
                         </div>
                     </div>
                 </Container>
-            </div>
+            </div> */}
             <Container size='lg'>
                 <div className={styles.navContainer}>
                     <Link to='/'>
                         <img src={logo} width='150px' alt="" />
                     </Link>
                     <div>
-                        <Link className={styles.navLink} to='/'>Home</Link>
+                        <Link className={styles.navLink} to='/' >Home</Link>
                         <Menu shadow="md" width={200} trigger='hover'>
                             <Menu.Target>
-                                <Link className={styles.navLink} to='/listing'>Listings</Link>
+                                <Link className={styles.navLink} to='/properties'>Properties</Link>
                             </Menu.Target>
                             <Menu.Dropdown>
                                 <Menu.Item component={Link} to='/rent-properties'>
-                                    For Rent Properties
+                                    For Rent
                                 </Menu.Item>
                                 <Menu.Item component={Link} to='/sale-properties'>
-                                    For Sale Properties
+                                    For Sell
                                 </Menu.Item>
-                            </Menu.Dropdown>
-                        </Menu>
-                        <Menu shadow="md" width={200} trigger='hover'>
-                            <Menu.Target>
-                                <Link className={styles.navLink} to='/home'>Properties By Area</Link>
-                            </Menu.Target>
-                            <Menu.Dropdown>
+                                <Menu.Divider />
                                 <Menu.Item component={Link} to='/list'>
                                     Chittagong
                                 </Menu.Item>
@@ -73,14 +67,12 @@ const NavBar = () => {
                                 </Menu.Item>
                             </Menu.Dropdown>
                         </Menu>
+                        <Link className={styles.navLink} to='/blog' >Blog</Link>
                         <Menu shadow="md" width={200} trigger='hover'>
                             <Menu.Target>
                                 <Link className={styles.navLink}>Pages</Link>
                             </Menu.Target>
                             <Menu.Dropdown>
-                                <Menu.Item component={Link} to='/blog'>
-                                    Blog
-                                </Menu.Item>
                                 <Menu.Item component={Link} to='/contact'>
                                     Contact
                                 </Menu.Item>
@@ -92,7 +84,7 @@ const NavBar = () => {
                                 </Menu.Item>
                             </Menu.Dropdown>
                         </Menu>
-                        <Button component={Link} to='/login' sx='margin-left: 1rem'>Login</Button>
+                        <Button color='cyan' component={Link} to='/login' sx='margin-left: 1rem'>Login</Button>
                     </div>
                 </div>
             </Container>

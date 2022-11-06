@@ -37,18 +37,18 @@ const Login = (props) => {
 
     return (
         <Container size='lg'>
-            <Grid align='center' style={{margin:'5rem 0'}} gutter={40}>
+            <Grid align='center' style={{ margin: '5rem 0' }} gutter={40}>
                 <Grid.Col span={6}>
                     <img src={IMG} alt="" />
                 </Grid.Col>
-                <Grid.Col span={6} style={{padding:'0 4rem '}}>
+                <Grid.Col span={6} style={{ padding: '0 4rem ' }}>
                     <Text size="lg" weight={500}>
                         Welcome to Hourent, {type} with
                     </Text>
 
                     <Group grow mb="md" mt="md">
-                        <Button size='md' variant='outline' radius="xl">Google</Button>
-                        <Button size='md' variant='outline' radius="xl">Twitter</Button>
+                        <Button size='md' color='cyan' variant='outline' radius="xl">Google</Button>
+                        <Button size='md' color='cyan' variant='outline' radius="xl">Twitter</Button>
                     </Group>
 
                     <Divider label="Or continue with email" labelPosition="center" my="lg" />
@@ -84,6 +84,7 @@ const Login = (props) => {
 
                             {type === 'register' && (
                                 <Checkbox
+                                    color='cyan'
                                     label="I accept terms and conditions"
                                     checked={form.values.terms}
                                     onChange={(event) => form.setFieldValue('terms', event.currentTarget.checked)}
@@ -103,7 +104,7 @@ const Login = (props) => {
                                     ? 'Already have an account? Login'
                                     : "Don't have an account? Register"}
                             </Anchor>
-                            <Button type="submit">{upperFirst(type)}</Button>
+                            <Button color='cyan' type="submit">{upperFirst(type)}</Button>
                         </Group>
                     </form>
                 </Grid.Col>
