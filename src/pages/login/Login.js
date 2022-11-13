@@ -1,6 +1,8 @@
 import React from 'react';
 import IMG from '../../assets/images/Fingerprint-rafiki.svg'
 import { useToggle, upperFirst } from '@mantine/hooks';
+import { useNavigate } from 'react-router-dom';
+import { Auth } from '../../contexts/AuthContext';
 import { useForm } from '@mantine/form';
 import {
     TextInput,
@@ -34,6 +36,30 @@ const Login = (props) => {
         },
     });
 
+    const { signInUsingGooglePopup, signInUsingFacebookPopup,setError,setUser} =  Auth();
+    const navigate = useNavigate();
+
+    const handleGoogleSignIn = () => {
+        signInUsingGooglePopup()
+            .then(result => {
+                setUser(result.user)
+                navigate(-1)
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+    const handleFacebookSignIn = () => {
+        signInUsingFacebookPopup()
+            .then(result => {
+                setUser(result.user)
+                navigate(-1)
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
 
     return (
         <Container size='lg'>
@@ -47,8 +73,8 @@ const Login = (props) => {
                     </Text>
 
                     <Group grow mb="md" mt="md">
-                        <Button size='md' color='cyan' variant='outline' radius="xl">Google</Button>
-                        <Button size='md' color='cyan' variant='outline' radius="xl">Twitter</Button>
+                        <Button onClick={handleGoogleSignIn} size='md' color='cyan' variant='outline' radius="xl">Google</Button>
+                        <Button onClick={handleFacebookSignIn} size='md' color='cyan' variant='outline' radius="xl">Facebook</Button>
                     </Group>
 
                     <Divider label="Or continue with email" labelPosition="center" my="lg" />

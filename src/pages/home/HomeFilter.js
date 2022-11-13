@@ -18,7 +18,7 @@ const HomeFilter = () => {
             <Grid span={12} gutter={40} align='center' justify='space-around'>
                 <Grid.Col span={4}>
                     <TextInput
-                        placeholder="Your name"
+                        placeholder=""
                         label="Full name"
                         withAsterisk
                     />

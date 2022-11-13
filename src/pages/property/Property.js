@@ -4,6 +4,7 @@ import { Carousel } from '@mantine/carousel';
 import { Badge, Button, Container, Grid, Textarea, TextInput } from '@mantine/core';
 import { IconAt, IconMapPin } from '@tabler/icons';
 import Autoplay from 'embla-carousel-autoplay';
+import Description from './Description';
 
 const Property = () => {
 
@@ -22,7 +23,7 @@ const Property = () => {
                     </div>
                     <Carousel
                         mx="auto"
-                        height='45vh'
+                        height='30rem'
                         withIndicators
                         plugins={[autoplay.current]}
                         onMouseEnter={autoplay.current.stop}
@@ -30,7 +31,7 @@ const Property = () => {
                         loop
                     >
                         <Carousel.Slide>
-                            <img width='100%' src={require('../../assets/images/pexels-jessica-bryant-1370704.jpg')} alt="" />
+                            <img width='100%' src='https://i.pinimg.com/originals/4f/b4/f6/4fb4f68e9f4f6a83b6c534515c29f951.jpg' alt="" />
                         </Carousel.Slide>
                         <Carousel.Slide>
                             <img width='100%' src={require('../../assets/images/pexels-jessica-bryant-1370704.jpg')} alt="" />
@@ -39,87 +40,7 @@ const Property = () => {
                             <img width='100%' src={require('../../assets/images/pexels-jessica-bryant-1370704.jpg')} alt="" />
                         </Carousel.Slide>
                     </Carousel>
-                    <div className={styles.descContainer}>
-                        <h2 style={{ margin: '0', borderBottom: '1px solid gray', paddingBottom: '0.5rem' }}>Description</h2>
-                        <Grid justify='space-around' columns={24}>
-                            <Grid.Col span={11}>
-                                <div className={styles.infoContainer}>
-                                    <span>Property Size:</span>
-                                    <span>2215 Sq Ft</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Parking:</span>
-                                    <span>2</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Floor:</span>
-                                    <span>10th</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Unit:</span>
-                                    <span>B-10</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Unit Per Floor:</span>
-                                    <span>2</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Price:</span>
-                                    <span>BDT 276,875/-</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Lift:</span>
-                                    <span>02</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Year Built:</span>
-                                    <span>2012</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Garage:</span>
-                                    <span>0</span>
-                                </div>
-                            </Grid.Col>
-                            <Grid.Col span={11}>
-                                <div className={styles.infoContainer}>
-                                    <span>Property Purpose:</span>
-                                    <span>For Rent</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Total Unit:</span>
-                                    <span>32</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Bed Rooms:</span>
-                                    <span>3</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Bathrooms:</span>
-                                    <span>2</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Living Rooms:</span>
-                                    <span>2</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Kitchens:</span>
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Insurance:</span>
-                                    <span>N/A</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Pools:</span>
-                                    <span>0</span>
-                                </div>
-                                <div className={styles.infoContainer}>
-                                    <span>Building Type:</span>
-                                    <span>Commercial</span>
-                                </div>
-                            </Grid.Col>
-                        </Grid>
-                    </div>
+                    <Description />
                 </Grid.Col>
                 <Grid.Col span={8} className={styles.bookingSectionContainer}>
                     <h2 style={{margin:'1rem 0'}}>Book Now!</h2>

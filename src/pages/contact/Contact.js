@@ -1,5 +1,5 @@
 import React from 'react';
-import Email from '../../components/Email/Email'
+import Email from '../../shared/Email/Email'
 
 
 const Contact = () => {

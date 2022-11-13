@@ -1,5 +1,5 @@
 import React from 'react';
-import Team from '../../components/Team/Team'
+import Team from '../../shared/Team/Team'
 
 
 const About = () => {
