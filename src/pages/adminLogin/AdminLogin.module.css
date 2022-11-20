@@ -1,0 +1,6 @@
+.container{
+    margin-top: 0;
+    background-image: url('../../assets/svg/Live-Motion-Background.svg');
+    background-size:cover;
+    height: 100vh;
+}

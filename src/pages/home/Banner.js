@@ -1,6 +1,7 @@
 import React from 'react';
 import BannerImg from '../../assets/images/Hotel Booking-pana.svg';
 import styles from './Banner.module.css';
+import {Link} from 'react-router-dom';
 import { Button, Container, Grid } from '@mantine/core';
 
 
@@ -15,7 +16,7 @@ const Banner = () => {
                     <h1 className={styles.bannerTitle}>Find Your Property</h1>
                     <p className={styles.bannerPara}>Gain access to comprehensive and minute knowledge of the local
                         property market, allowing you to fully understand.</p>
-                    <Button color='cyan'>Find Home Now!</Button>
+                    <Button component={Link} to='/properties' color='cyan'>Find Home Now!</Button>
                 </Grid.Col>
                 <Grid.Col span={5}>
                     <img src={BannerImg} alt="" />

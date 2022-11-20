@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './HomeFilter.module.css';
-import { Button, Container, Grid, Select, Slider, TextInput } from '@mantine/core';
+import { Link } from 'react-router-dom';
+import { Button, Container, Grid, RangeSlider, Select, TextInput } from '@mantine/core';
 
 
 
 
 
 const HomeFilter = () => {
-
-    // const [value, setValue] = useState(50);
-    // const [endValue, setEndValue] = useState(50);
 
 
     return (
@@ -19,31 +17,30 @@ const HomeFilter = () => {
                 <Grid.Col span={4}>
                     <TextInput
                         placeholder=""
-                        label="Full name"
-                        withAsterisk
+                        label="Location"
                     />
                 </Grid.Col>
                 <Grid.Col span={4}>
                     <Select
-                        label="Your favorite framework/library"
+                        label="Bed Room"
                         placeholder="Pick one"
                         data={[
-                            { value: 'react', label: 'React' },
-                            { value: 'ng', label: 'Angular' },
-                            { value: 'svelte', label: 'Svelte' },
-                            { value: 'vue', label: 'Vue' },
+                            { value: '1', label: '1' },
+                            { value: '2', label: '2' },
+                            { value: '3', label: '3' },
+                            { value: '4', label: '4' },
                         ]}
                     />
                 </Grid.Col>
                 <Grid.Col span={4}>
                     <Select
-                        label="Your favorite framework/library"
+                        label="Bathroom"
                         placeholder="Pick one"
                         data={[
-                            { value: 'react', label: 'React' },
-                            { value: 'ng', label: 'Angular' },
-                            { value: 'svelte', label: 'Svelte' },
-                            { value: 'vue', label: 'Vue' },
+                            { value: '1', label: '1' },
+                            { value: '2', label: '2' },
+                            { value: '3', label: '3' },
+                            { value: '4', label: '4' },
                         ]}
                     />
                 </Grid.Col>
@@ -51,25 +48,27 @@ const HomeFilter = () => {
             <Grid gutter={40} align='center'>
                 <Grid.Col span={4}>
                     <Select
-                        label="Your favorite framework/library"
+                        label="Property Type"
                         placeholder="Pick one"
                         data={[
-                            { value: 'react', label: 'React' },
-                            { value: 'ng', label: 'Angular' },
-                            { value: 'svelte', label: 'Svelte' },
-                            { value: 'vue', label: 'Vue' },
+                            { value: 'Buy', label: 'Buy' },
+                            { value: 'Rent', label: 'Rent' },
                         ]}
                     />
                 </Grid.Col>
                 <Grid.Col span={4}>
-                    <Slider
+                <RangeSlider defaultValue={[20, 80]}
                         color='cyan'
-                        labelAlwaysOn
-                        // label={value}
+                        marks={[
+                            { value: 20, label: '20k' },
+                            { value: 50, label: '50k' },
+                            { value: 80, label: '80k' },
+                        ]}
+                        label={(value) => `${value}K`}
                     />
                 </Grid.Col>
                 <Grid.Col span={4}>
-                    <Button color='cyan' style={{ width: '100%' }}>Find</Button>
+                    <Button component={Link} to='/properties' color='cyan' style={{ width: '100%' }}>Find</Button>
                 </Grid.Col>
             </Grid>
         </Container>

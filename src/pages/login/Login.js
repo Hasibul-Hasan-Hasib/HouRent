@@ -2,7 +2,7 @@ import React from 'react';
 import IMG from '../../assets/images/Fingerprint-rafiki.svg'
 import { useToggle, upperFirst } from '@mantine/hooks';
 import { useNavigate } from 'react-router-dom';
-import { Auth } from '../../contexts/AuthContext';
+import Auth from '../../hooks/useAuth';
 import { useForm } from '@mantine/form';
 import {
     TextInput,

@@ -4,8 +4,7 @@ import { createStyles, Title, Text, Button, Container, Group } from '@mantine/co
 
 const useStyles = createStyles((theme) => ({
     root: {
-        paddingTop: 80,
-        paddingBottom: 80,
+        paddingTop: '22vh',
     },
 
     label: {

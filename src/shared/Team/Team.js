@@ -54,14 +54,14 @@ const Team = () => {
                                 alt=''
                             />
                             <img
-                                className={`${styles.img} ${styles.img1}`}
-                                src='https://raw.githubusercontent.com/Hasibul-Hasan-Hasib/HSB-BLOGS/main/src/Assets/Images/2.png'
+                                className={`${styles.img} ${styles.img3}`}
+                                src={require('../../assets/images/1641998596872.png')}
                                 alt=''
                             />
                         </div>
                     </div>
                     <div class={styles.divider}></div>
-                    <div class={styles.name}>Hasib</div>
+                    <div class={styles.name}>Yasin</div>
                 </div>
                 <div className={styles.person}>
                     <div className={styles.container}>

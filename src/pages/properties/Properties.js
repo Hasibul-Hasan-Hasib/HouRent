@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Properties.module.css'
-import { Button, Container, Grid, Pagination, Select, Slider, TextInput } from '@mantine/core';
+import styles from './Properties.module.css';
+import Filters from './Filters';
+import { Container, Grid, Pagination } from '@mantine/core';
 import { IconRuler2 } from '@tabler/icons';
 
 const Properties = () => {
@@ -96,30 +97,7 @@ const Properties = () => {
                     </Grid>
                 </Grid.Col>
                 <Grid.Col span={8} className={styles.filterContainer}>
-                    <h2>Find Your Home</h2>
-                    <TextInput
-                        className={styles.filterItems}
-                        placeholder="Your name"
-                        label="Full name"
-                        withAsterisk
-                    />
-                    <Select
-                        className={styles.filterItems}
-                        label="Your favorite framework/library"
-                        placeholder="Pick one"
-                        data={[
-                            { value: 'react', label: 'React' },
-                            { value: 'ng', label: 'Angular' },
-                            { value: 'svelte', label: 'Svelte' },
-                            { value: 'vue', label: 'Vue' },
-                        ]}
-                    />
-                    <Slider
-                        className={styles.filterItems}
-                        color='cyan'
-                        labelAlwaysOn
-                    />
-                    <Button color='cyan' className={styles.filterItems} style={{ width: '100%' }}>Find</Button>
+                    <Filters />
                 </Grid.Col>
                 <Pagination color='cyan' total={20} siblings={3} boundaries={3} initialPage={1} />
             </Grid>

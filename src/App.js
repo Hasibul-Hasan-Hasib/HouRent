@@ -1,8 +1,6 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from './shared/NavBar/Navbar';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/home/Home';
-import Footer from './shared/Footer/Footer';
 import Contact from './pages/contact/Contact';
 import Blog from './pages/blog/Blog';
 import About from './pages/about/About';
@@ -10,30 +8,77 @@ import NotFound from './pages/notFound/NotFound';
 import Login from './pages/login/Login';
 import Properties from './pages/properties/Properties';
 import Property from './pages/property/Property';
-import AuthContext from './contexts/AuthContext'
+import AuthContext from './contexts/AuthProvider'
+import Main from './shared/Main/Main';
+import AdminLogin from './pages/adminLogin/AdminLogin';
+import AdminPanel from './pages/adminPanel/AdminPanel';
 
 
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Main />,
+      children: [
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/home',
+          element: <Home />
+        },
+        {
+          path: '/properties',
+          element: <Properties />
+        },
+        {
+          path: '/property',
+          element: <Property />
+        },
+        {
+          path: '/blog',
+          element: <Blog />
+        },
+        {
+          path: '/contact',
+          element: <Contact />
+        },
+        {
+          path: '/about',
+          element: <About />
+        },
+        // {
+        //   path: '/:userName/booking',
+        //   element: <Booking />
+        // },
+        // {
+        //   path: '/:userName/saved',
+        //   element: <Profile />
+        // },
+        {
+          path: '/login',
+          element: <Login />
+        },
+      ]
+    },
+    {
+      path: '/admin-login',
+      element: <AdminLogin />
+    },
+    {
+      path: '/admin-panel',
+      element: <AdminPanel />
+    },
+    { path: '*', element: <NotFound /> }
+  ])
   return (
-    <AuthContext>
-      <Router>
-        <NavBar></NavBar>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/properties" element={<Properties />} />
-          <Route path="/property" element={<Property />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/notfound" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer></Footer>
-      </Router>
-    </AuthContext>
+    <div>
+      <AuthContext>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthContext>
+    </div>
   );
 }
 

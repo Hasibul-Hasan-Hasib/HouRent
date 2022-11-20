@@ -1,68 +1,58 @@
 import React from 'react';
 import styles from './NavBar.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo/logo.png';
 import { Button, Container, Menu } from '@mantine/core';
-// import {
-//     IconBrandFacebook,
-//     IconBrandTwitter,
-//     IconBrandYoutube,
-//     IconBrandLinkedin,
-//     IconBrandInstagram,
-//     IconPhone,
-//     IconMapPin,
-// } from '@tabler/icons'
+import useAuth from '../../hooks/useAuth';
 
 
 
 const NavBar = () => {
+
+    const { logOut, setUser, user, setIsLoading } = useAuth()
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                setUser({})
+                navigate('/')
+            })
+            .finally(() => {
+                setIsLoading(true)
+            })
+    }
+
+    console.log(user.photoURL);
+
+
     return (
         <>
-            {/* <div className={styles.navBack}>
-                <Container size='lg' className={styles.socialContainer}>
-                    <div className={styles.align}>
-                        <Link className={styles.socialLink}><IconBrandFacebook size={24} /></Link>
-                        <Link className={styles.socialLink}><IconBrandTwitter size={24} /></Link>
-                        <Link className={styles.socialLink}><IconBrandYoutube size={24} /></Link>
-                        <Link className={styles.socialLink}><IconBrandLinkedin size={24} /></Link>
-                        <Link className={styles.socialLink}><IconBrandInstagram size={24} /></Link>
-                    </div>
-                    <div className={styles.align}>
-                        <div className={styles.info}>
-                            <IconPhone size={24} />(+880)1766848008
-                        </div>
-                        <div className={styles.info}>
-                            <IconMapPin size={24} />South Khulshi,Chittagong
-                        </div>
-                    </div>
-                </Container>
-            </div> */}
             <Container size='lg'>
                 <div className={styles.navContainer}>
                     <Link to='/'>
                         <img src={logo} width='150px' alt="" />
                     </Link>
-                    <div>
+                    <div className={styles.align}>
                         <Link className={styles.navLink} to='/' >Home</Link>
                         <Menu shadow="md" width={200} trigger='hover'>
                             <Menu.Target>
-                                <Link className={styles.navLink} to='/properties'>Properties</Link>
+                                <Link className={styles.navLink} >Properties</Link>
                             </Menu.Target>
                             <Menu.Dropdown>
-                                <Menu.Item component={Link} to='/rent-properties'>
+                                <Menu.Item component={Link} to='/properties'>
                                     For Rent
                                 </Menu.Item>
-                                <Menu.Item component={Link} to='/sale-properties'>
+                                <Menu.Item component={Link} to='/properties'>
                                     For Sell
                                 </Menu.Item>
                                 <Menu.Divider />
-                                <Menu.Item component={Link} to='/list'>
+                                <Menu.Item component={Link} to='/properties'>
                                     Chittagong
                                 </Menu.Item>
-                                <Menu.Item component={Link} to='/list'>
+                                <Menu.Item component={Link} to='/properties'>
                                     Dhaka
                                 </Menu.Item>
-                                <Menu.Item component={Link} to='/list'>
+                                <Menu.Item component={Link} to='/properties'>
                                     Barisal
                                 </Menu.Item>
                             </Menu.Dropdown>
@@ -84,7 +74,25 @@ const NavBar = () => {
                                 </Menu.Item>
                             </Menu.Dropdown>
                         </Menu>
-                        <Button color='cyan' component={Link} to='/login' sx='margin-left: 1rem'>Login</Button>
+                        {user?.email ?
+                            <Menu shadow="md" width={200} trigger='hover'>
+                                <Menu.Target>
+                                    <img style={{borderRadius:'50%'}} className={styles.navLink} width={35} src={user.photoURL} alt="non" />
+                                </Menu.Target>
+                                <Menu.Dropdown>
+                                    <Menu.Item component={Link} to='/saved'>
+                                        saved
+                                    </Menu.Item>
+                                    <Menu.Item component={Link} to='/bookings'>
+                                        bookings
+                                    </Menu.Item>
+                                    <Menu.Item component={Link} onClick={handleLogout}>
+                                        Logout
+                                    </Menu.Item>
+                                </Menu.Dropdown>
+                            </Menu>
+                            :
+                            <Button color='cyan' component={Link} to='/login' sx='margin-left: 1rem'>Login</Button>}
                     </div>
                 </div>
             </Container>
