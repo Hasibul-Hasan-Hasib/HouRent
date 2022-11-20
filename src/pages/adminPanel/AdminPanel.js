@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { createStyles, Navbar, Group, Code } from '@mantine/core';
 import {
     IconBellRinging,
-    IconFingerprint,
-    IconKey,
-    IconSettings,
-    Icon2fa,
-    IconDatabaseImport,
-    IconReceipt2,
     IconSwitchHorizontal,
     IconLogout,
+    IconDashboard,
+    IconBuildingCottage,
+    IconUsers,
+    IconBrandDisqus,
+    IconAlertCircle,
+    IconRefresh,
+    IconUser,
 } from '@tabler/icons';
 import Logo from '../../assets/logo/logo.png';
 import { Link } from 'react-router-dom';
@@ -72,13 +73,14 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 const data = [
-    { link: '', label: 'Notifications', icon: IconBellRinging },
-    { link: '', label: 'Billing', icon: IconReceipt2 },
-    { link: '', label: 'Security', icon: IconFingerprint },
-    { link: '', label: 'SSH Keys', icon: IconKey },
-    { link: '', label: 'Databases', icon: IconDatabaseImport },
-    { link: '', label: 'Authentication', icon: Icon2fa },
-    { link: '', label: 'Other Settings', icon: IconSettings },
+    { link: '', label: 'Dashboard', icon: IconDashboard },
+    { link: '', label: 'Message', icon: IconBellRinging },
+    { link: '', label: 'Posts', icon: IconBuildingCottage },
+    { link: '', label: 'Users', icon: IconUsers },
+    { link: '', label: 'Comments', icon: IconBrandDisqus },
+    { link: '', label: 'Reports', icon: IconAlertCircle },
+    { link: '', label: 'Update', icon: IconRefresh },
+    { link: '', label: 'Owner', icon: IconUser },
 ];
 
 export default function AdminPanel() {
