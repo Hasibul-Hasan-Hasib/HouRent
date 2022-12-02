@@ -1,5 +1,6 @@
-import { Button, Container, Group, Image, Pagination, Table } from '@mantine/core';
+import { ActionIcon, Button, Container, Group, Image, Pagination, Table } from '@mantine/core';
 import React, { useState } from 'react';
+import { IconRefresh, IconTrash } from '@tabler/icons';
 import useData from '../../hooks/useData';
 
 const Posts = () => {
@@ -21,9 +22,14 @@ const Posts = () => {
             <td>{element.price}</td>
             <td>{element.available === 0 ? "Not Available" : 'Available'}</td>
             <td>
-                <Group position="right" mt="md">
-                    <Button>Update</Button>
-                    <Button color='red'>Remove</Button>
+                <Group mt="md">
+                    <ActionIcon variant='filled' color='cyan' size='lg'>
+                        <IconRefresh size={24} />
+                    </ActionIcon>
+                    <ActionIcon variant='filled' color='red' size='lg'>
+                        <IconTrash size={24} />
+                    </ActionIcon>
+
                 </Group>
             </td>
         </tr>
@@ -36,10 +42,12 @@ const Posts = () => {
                 <Button color='cyan'>Add Post</Button>
             </Group>
             <Table
+                mt='2rem'
+                mb='5rem'
                 verticalSpacing="lg"
                 fontSize="lg"
                 highlightOnHover
-                >
+            >
                 <thead>
                     <tr>
                         <th>Post Img</th>
@@ -47,6 +55,7 @@ const Posts = () => {
                         <th>Post Location</th>
                         <th>Price</th>
                         <th>Atomic mass</th>
+                        <th>Edit/Remove</th>
                     </tr>
                 </thead>
                 <tbody>{rows}</tbody>

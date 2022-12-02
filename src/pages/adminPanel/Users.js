@@ -16,10 +16,9 @@ const Users = () => {
                     style={{ width: '4rem', borderRadius: '50%', aspectRatio: '3/2', objectFit: 'contain' }}
                 ></Image>
             </td>
-            <td>{element.post_id}</td>
-            <td>{element.post_loc}</td>
-            <td>{element.price}</td>
-            <td>{element.available === 0 ? "Not Available" : 'Available'}</td>
+            <td>{element.user_id}</td>
+            <td>{element.user_name}</td>
+            <td>{element.user_email}</td>
             <td>
                 <Group position="right" mt="md">
                     <Button>Update</Button>

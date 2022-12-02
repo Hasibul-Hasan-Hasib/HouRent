@@ -15,8 +15,8 @@ import Saved from './pages/saved/Saved';
 import Booking from './pages/booking/Booking';
 import Admin from './shared/Admin/Admin';
 import Users from './pages/adminPanel/Users';
-import Posts from './pages/adminPanel/Posts';
 import PrivateRoute from './shared/PrivateRoute/PrivateRoute';
+import Posts from './pages/adminPanel/Posts';
 
 
 
@@ -56,6 +56,10 @@ function App() {
             {
               path: '/bookings',
               element: <Booking />
+            },
+            {
+              path: '/posts',
+              element: <Posts />
             },
             {
               path: '/saved',

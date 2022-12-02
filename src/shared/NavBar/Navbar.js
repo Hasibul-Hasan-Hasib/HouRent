@@ -85,6 +85,9 @@ const NavBar = () => {
                                     <Menu.Item component={Link} to={`/bookings`}>
                                         bookings
                                     </Menu.Item>
+                                    <Menu.Item component={Link} to={`/posts`}>
+                                        My Posts
+                                    </Menu.Item>
                                     <Menu.Item component={Link} onClick={handleLogout}>
                                         Logout
                                     </Menu.Item>

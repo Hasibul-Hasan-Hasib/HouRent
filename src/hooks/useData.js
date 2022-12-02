@@ -1,18 +1,41 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
 
 
 const useData = () => {
-    const { id } = useParams();
     const [posts, setPosts] = useState([]);
+    const [users, setUsers] = useState([]);
+    const [bookings, setBookings] = useState([]);
+    const [reviews, setReviews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const url = `http://localhost:3100/posts`;
+
+    const postUrl = `http://localhost:3100/posts`;
+    const userUrl = `http://localhost:3100/users`;
+    const bookingsUrl = `http://localhost:3100/bookings`;
+    const reviewsUrl = `http://localhost:3100/reviews`;
+
+    console.log(users);
+    console.log(posts);
+    console.log(bookings)
+    console.log(reviews);
+
 
     const fetchData = async () => {
-        const { data } = await axios.get(url)
+        const postData = await axios.get(postUrl)
             .finally(() => setIsLoading(false));
-        setPosts(data);
+        setPosts(postData.data);
+
+        const userData = await axios.get(userUrl)
+            .finally(() => setIsLoading(false));
+        setUsers(userData.data);
+
+        const bookingsData = await axios.get(bookingsUrl)
+            .finally(() => setIsLoading(false));
+        setBookings(bookingsData.data);
+
+        const reviewsData = await axios.get(reviewsUrl)
+            .finally(() => setIsLoading(false));
+        setReviews(reviewsData.data);
     }
 
     useEffect(() => {
@@ -22,7 +45,7 @@ const useData = () => {
 
 
 
-    return { posts, isLoading };
+    return { users, posts, bookings, reviews, isLoading };
 }
 
 export default useData;
