@@ -1,88 +1,78 @@
-import { Grid } from '@mantine/core';
+import { ActionIcon, Grid, Tooltip } from '@mantine/core';
+import { IconHeart } from '@tabler/icons';
 import React from 'react';
 import styles from './Property.module.css'
 
 
 
-const Description = () => {
+const Description = ({ data }) => {
     return (
         <div className={styles.descContainer}>
-            <h2 style={{ margin: '0', borderBottom: '1px solid gray', paddingBottom: '0.5rem' }}>Description</h2>
-            <Grid justify='space-around' columns={24}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <h2 style={{ marginLeft: '0.5rem' }}>Description</h2>
+                <Tooltip label="Remove Saved" color="cyan" withArrow>
+                    <ActionIcon color='red'><IconHeart></IconHeart></ActionIcon>
+                </Tooltip>
+            </div>
+            <Grid justify='space-around' style={{ marginBottom: '0.5rem' }} columns={24}>
                 <Grid.Col span={11}>
                     <div className={styles.infoContainer}>
                         <span>Property Size:</span>
-                        <span>2215 Sq Ft</span>
+                        <span>{data.square_areas} Sq Ft</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Parking:</span>
-                        <span>2</span>
+                        <span>{data.parking}</span>
                     </div>
                     <div className={styles.infoContainer}>
-                        <span>Floor:</span>
-                        <span>10th</span>
-                    </div>
-                    <div className={styles.infoContainer}>
-                        <span>Unit:</span>
-                        <span>B-10</span>
-                    </div>
-                    <div className={styles.infoContainer}>
-                        <span>Unit Per Floor:</span>
-                        <span>2</span>
+                        <span>Total Floor:</span>
+                        <span>{data.total_floor}</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Price:</span>
-                        <span>BDT 276,875/-</span>
-                    </div>
-                    <div className={styles.infoContainer}>
-                        <span>Lift:</span>
-                        <span>02</span>
+                        <span>BDT {data.price ? data.price.toLocaleString(undefined, { maximumFractionDigits: 2 }) : ''} Tk</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Year Built:</span>
-                        <span>2012</span>
+                        <span>{data.construction_year}</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Garage:</span>
-                        <span>0</span>
+                        <span>{data.garages}</span>
+                    </div>
+                    <div className={styles.infoContainer}>
+                        <span>State:</span>
+                        <span>{data.available === 0 ? 'Not Available' : 'Available'}</span>
                     </div>
                 </Grid.Col>
                 <Grid.Col span={11}>
                     <div className={styles.infoContainer}>
                         <span>Property Purpose:</span>
-                        <span>For Rent</span>
-                    </div>
-                    <div className={styles.infoContainer}>
-                        <span>Total Unit:</span>
-                        <span>32</span>
+                        <span>{data.post_type === 0 ? 'Rent' : 'Sell'}</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Bed Rooms:</span>
-                        <span>3</span>
+                        <span>{data.bed_rooms}</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Bathrooms:</span>
-                        <span>2</span>
+                        <span>{data.bath_rooms}</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Living Rooms:</span>
-                        <span>2</span>
+                        <span>{data.living_rooms}</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Kitchens:</span>
-                        <span>1</span>
+                        <span>{data.kitchens}</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Insurance:</span>
-                        <span>N/A</span>
+                        <span>{data.Insurance === 0 ? 'No' : 'Yes'}</span>
                     </div>
                     <div className={styles.infoContainer}>
                         <span>Pools:</span>
-                        <span>0</span>
-                    </div>
-                    <div className={styles.infoContainer}>
-                        <span>Building Type:</span>
-                        <span>Commercial</span>
+                        <span>{data.pools}</span>
                     </div>
                 </Grid.Col>
             </Grid>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './HomeFilter.module.css';
 import { Link } from 'react-router-dom';
 import { Button, Container, Grid, RangeSlider, Select, TextInput } from '@mantine/core';

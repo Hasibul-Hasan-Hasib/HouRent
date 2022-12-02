@@ -36,7 +36,7 @@ const Login = (props) => {
         },
     });
 
-    const { signInUsingGooglePopup, signInUsingFacebookPopup,setError,setUser} =  Auth();
+    const { signInUsingGooglePopup, signInUsingGithubPopup, setError, setUser } = Auth();
     const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
@@ -50,8 +50,8 @@ const Login = (props) => {
             })
     }
 
-    const handleFacebookSignIn = () => {
-        signInUsingFacebookPopup()
+    const handleGithubSignIn = () => {
+        signInUsingGithubPopup()
             .then(result => {
                 setUser(result.user)
                 navigate(-1)
@@ -74,7 +74,7 @@ const Login = (props) => {
 
                     <Group grow mb="md" mt="md">
                         <Button onClick={handleGoogleSignIn} size='md' color='cyan' variant='outline' radius="xl">Google</Button>
-                        <Button onClick={handleFacebookSignIn} size='md' color='cyan' variant='outline' radius="xl">Facebook</Button>
+                        <Button onClick={handleGithubSignIn} size='md' color='cyan' variant='outline' radius="xl">Github</Button>
                     </Group>
 
                     <Divider label="Or continue with email" labelPosition="center" my="lg" />

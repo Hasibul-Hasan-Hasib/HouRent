@@ -1,6 +1,6 @@
 .container{
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin: 3rem auto;
+    margin-bottom: 0;
 }
 
 .mapIcon{
@@ -30,7 +30,7 @@
 
 
 .bookingSectionContainer{
-    margin-top: 20vh;
+    margin-top: 0.5rem;
     padding: 1rem 2rem ;
     border-radius: 10px;
     background: linear-gradient(to top, #e0eafc, #c2d6f3);

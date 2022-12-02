@@ -8,7 +8,7 @@ const Email = () => {
     return (
         <Grid className={styles.container}>
             <Grid.Col span={6} style={{padding:'0'}}>
-                <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.648841118486!2d91.79919361542821!3d22.329116647489794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8d230aa220d%3A0x3148f72010b590cb!2sAgrabad%20Access%20Rd%2C%20Chittagong!5e0!3m2!1sen!2sbd!4v1643132835748!5m2!1sen!2sbd"></iframe>
+                <iframe width="100%" height="100%" className="absolute inset-0" frameborder="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.648841118486!2d91.79919361542821!3d22.329116647489794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8d230aa220d%3A0x3148f72010b590cb!2sAgrabad%20Access%20Rd%2C%20Chittagong!5e0!3m2!1sen!2sbd!4v1643132835748!5m2!1sen!2sbd"></iframe>
             </Grid.Col>
             <Grid.Col className={styles.emailContainer} span={6}>
                 <h2 className={styles.title}>Ready to get Started?</h2>

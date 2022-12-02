@@ -8,7 +8,6 @@ import { Button, Grid, RangeSlider, Select, TextInput } from '@mantine/core';
 const Filters = () => {
 
     const [rangeValue, setRangeValue] = useState([20, 80]);
-    console.log(rangeValue)
 
     return (
         <>

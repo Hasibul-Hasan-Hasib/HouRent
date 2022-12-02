@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './NavBar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../assets/logo/logo.png';
+import logo from '../../assets/logo/306779426_1757552851287913_919493399515004179_n.png';
 import { Button, Container, Menu } from '@mantine/core';
 import useAuth from '../../hooks/useAuth';
 
@@ -22,7 +22,6 @@ const NavBar = () => {
             })
     }
 
-    console.log(user.photoURL);
 
 
     return (
@@ -77,13 +76,13 @@ const NavBar = () => {
                         {user?.email ?
                             <Menu shadow="md" width={200} trigger='hover'>
                                 <Menu.Target>
-                                    <img style={{borderRadius:'50%'}} className={styles.navLink} width={35} src={user.photoURL} alt="non" />
+                                    <img className={`${styles.navLink} ${styles.navImg}`} width={35} src={user.photoURL} alt="non" />
                                 </Menu.Target>
                                 <Menu.Dropdown>
-                                    <Menu.Item component={Link} to='/saved'>
+                                    <Menu.Item component={Link} to={`/saved`}>
                                         saved
                                     </Menu.Item>
-                                    <Menu.Item component={Link} to='/bookings'>
+                                    <Menu.Item component={Link} to={`/bookings`}>
                                         bookings
                                     </Menu.Item>
                                     <Menu.Item component={Link} onClick={handleLogout}>

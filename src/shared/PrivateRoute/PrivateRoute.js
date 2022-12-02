@@ -1,26 +1,27 @@
-import React from 'react';
-import { Spinner } from 'react-bootstrap';
-import { Redirect, Route } from 'react-router';
+import { LoadingOverlay } from '@mantine/core';
+import { Navigate, Outlet } from 'react-router-dom';
+
 import useAuth from '../../hooks/useAuth';
 
-const PrivateRoute = ({ children, ...rest }) => {
-    const { user, isLoading } = useAuth();
+
+
+
+const PrivateRoute = ({type}) => {
+    const { user, isLoading } = useAuth()
+    
     if (isLoading) {
-        return <Spinner animation="border" />;
+        return <LoadingOverlay visible={isLoading} overlayBlur={2} />
     }
     return (
-        <Route
-            {...rest}
-            render={({ location }) => user.email ? children : <Redirect
-                to={{
-                    pathname: "/login",
-                    state: { from: location }
-                }}
-            ></Redirect>}
-        >
-
-        </Route>
-    );
-};
+        <>
+            {
+                user.email ? <Outlet /> : <Navigate
+                    replace
+                    to={type==='admin'?'admin-login':'login'}
+                ></Navigate>
+            }
+        </>
+    )
+}
 
 export default PrivateRoute;

@@ -8,10 +8,15 @@ import NotFound from './pages/notFound/NotFound';
 import Login from './pages/login/Login';
 import Properties from './pages/properties/Properties';
 import Property from './pages/property/Property';
-import AuthContext from './contexts/AuthProvider'
+import AuthContext from './contexts/AuthProvider';
 import Main from './shared/Main/Main';
 import AdminLogin from './pages/adminLogin/AdminLogin';
-import AdminPanel from './pages/adminPanel/AdminPanel';
+import Saved from './pages/saved/Saved';
+import Booking from './pages/booking/Booking';
+import Admin from './shared/Admin/Admin';
+import Users from './pages/adminPanel/Users';
+import Posts from './pages/adminPanel/Posts';
+import PrivateRoute from './shared/PrivateRoute/PrivateRoute';
 
 
 
@@ -22,43 +27,44 @@ function App() {
       element: <Main />,
       children: [
         {
-          path: '/',
+          path: '',
           element: <Home />
         },
         {
-          path: '/home',
-          element: <Home />
-        },
-        {
-          path: '/properties',
+          path: 'properties',
           element: <Properties />
         },
         {
-          path: '/property',
+          path: 'properties/:id',
           element: <Property />
         },
         {
-          path: '/blog',
+          path: 'blog',
           element: <Blog />
         },
         {
-          path: '/contact',
+          path: 'contact',
           element: <Contact />
         },
         {
-          path: '/about',
+          path: 'about',
           element: <About />
         },
-        // {
-        //   path: '/:userName/booking',
-        //   element: <Booking />
-        // },
-        // {
-        //   path: '/:userName/saved',
-        //   element: <Profile />
-        // },
         {
-          path: '/login',
+          element: <PrivateRoute />,
+          children: [
+            {
+              path: '/bookings',
+              element: <Booking />
+            },
+            {
+              path: '/saved',
+              element: <Saved />
+            },
+          ],
+        },
+        {
+          path: 'login',
           element: <Login />
         },
       ]
@@ -68,8 +74,23 @@ function App() {
       element: <AdminLogin />
     },
     {
-      path: '/admin-panel',
-      element: <AdminPanel />
+      path: '/',
+      element: <Admin />,
+      children: [
+        {
+          element: <PrivateRoute type='admin' />,
+          children: [
+            {
+              path: '/admin/users',
+              element: <Users />
+            },
+            {
+              path: 'admin/posts',
+              element: <Posts />
+            },
+          ],
+        },
+      ]
     },
     { path: '*', element: <NotFound /> }
   ])

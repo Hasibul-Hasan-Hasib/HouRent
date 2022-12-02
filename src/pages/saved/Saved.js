@@ -6,23 +6,16 @@ import useData from '../../hooks/useData';
 
 
 
-
-
-
-export default function Featured() {
+export default function Saved() {
     const { posts } = useData()
-
+    
+    
     return (
-        <Container size='xl' py='3rem'>
-            <h1 
-                style={{textAlign:'center',fontSize:'2.5rem',marginTop:0,marginBottom:'3.5rem'}}
-            >
-                Wide range of property to suit all budgets & tastes
-            </h1>
+        <Container size='lg' py='3rem'>
             <SimpleGrid
                 cols={3} breakpoints={[{ maxWidth: 'sm', cols: 1 },
                 { maxWidth: 'md', cols: 2, spacing: 'md' }]}>
-                <CustomCard cards={posts.slice(0,6)}></CustomCard>
+                <CustomCard cards={posts}></CustomCard>
             </SimpleGrid>
         </Container>
     );

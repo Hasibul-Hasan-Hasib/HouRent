@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import initializeAuthentication from "../firebase/firebase.init"
-import { GoogleAuthProvider, FacebookAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useEffect, useState } from "react";
+import initializeAuthentication from "../firebase/firebase.init";
+import { GoogleAuthProvider, GithubAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 
 initializeAuthentication()
@@ -20,13 +20,13 @@ const useFirebase = () => {
         return signInWithPopup(auth, googleProvider)
     }
 
-    const signInUsingFacebookPopup = () => {
+    const signInUsingGithubPopup = () => {
         setIsLoading(true)
-        const facebookProvider = new FacebookAuthProvider();
-        if (facebookProvider) {
+        const githubProvider = new GithubAuthProvider();
+        if (githubProvider) {
             setIsLoading(false)
         }
-        return signInWithPopup(auth, facebookProvider)
+        return signInWithPopup(auth, githubProvider)
     }
 
 
@@ -53,7 +53,7 @@ const useFirebase = () => {
     return {
         user,
         signInUsingGooglePopup,
-        signInUsingFacebookPopup,
+        signInUsingGithubPopup,
         error,
         setError,
         setUser,

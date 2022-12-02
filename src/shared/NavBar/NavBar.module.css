@@ -1,46 +1,71 @@
-.align{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.align {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-
-
-.socialContainer{
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
+.socialContainer {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
 }
 
-
-.socialLink{
-    color: white;
-    margin: 0 0.25rem;
+.socialLink {
+  color: white;
+  margin: 0 0.25rem;
 }
 
-.navBack{
-    background-color: #023047;
+.navBack {
+  background-color: #023047;
 }
 
-.info{
-    margin: 0 0.5rem;
-    display: flex;
-    align-items: center;
+.info {
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
-
-.navContainer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1.25rem 0.5rem;
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.25rem 0.5rem;
 }
 
+.navLink {
+  margin: 0 1rem;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+  position: relative;
+}
 
-.navLink{
-    margin: 0 1rem;
-    text-decoration: none;
-    color: black;
+.navLink::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navImg {
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.navImg:hover{
+    transform: scale(1.1);
 }
