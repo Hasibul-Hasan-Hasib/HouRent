@@ -5,7 +5,14 @@ import styles from './Property.module.css'
 
 
 
+
+
 const Description = ({ data }) => {
+
+
+    
+
+
     return (
         <div className={styles.descContainer}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

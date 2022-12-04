@@ -21,7 +21,7 @@ const HomeHero = () => {
                     <ReactPlayer
                     width='100%'
                     height='20rem'
-                        url="https://www.youtube.com/watch?v=ug50zmP9I7s"
+                        url="https://www.youtube.com/watch?v=9gXOBEgHaUM"
                     />
                 </Grid.Col>
             </Grid>

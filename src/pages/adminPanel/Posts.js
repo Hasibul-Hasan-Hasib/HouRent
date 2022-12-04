@@ -2,9 +2,15 @@ import { ActionIcon, Button, Container, Group, Image, Pagination, Table } from '
 import React, { useState } from 'react';
 import { IconRefresh, IconTrash } from '@tabler/icons';
 import useData from '../../hooks/useData';
+import useAuth from '../../hooks/useAuth';
+
+
 
 const Posts = () => {
-    const { posts } = useData()
+
+    const { posts } = useData();
+    const { user } = useAuth();
+    const userPosts = posts.filter(post => post.user_id === 10023)
     const items = posts;
     const [activePage, setPage] = useState(1);
     const itemPerPage = 6;
@@ -29,14 +35,13 @@ const Posts = () => {
                     <ActionIcon variant='filled' color='red' size='lg'>
                         <IconTrash size={24} />
                     </ActionIcon>
-
                 </Group>
             </td>
         </tr>
     ));
 
     return (
-        <Container size='xl' mt='5rem'>
+        <Container size='lg' mt='5rem'>
             <Group position='apart' mt="md">
                 <Pagination size="md" color='cyan' siblings={3} page={activePage} onChange={setPage} total={Math.ceil(items.length / itemPerPage)} />
                 <Button color='cyan'>Add Post</Button>

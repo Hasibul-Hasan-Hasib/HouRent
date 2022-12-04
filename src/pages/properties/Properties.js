@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import styles from './Properties.module.css';
 import Filters from './Filters';
 import { Badge, Container, Grid, LoadingOverlay, Pagination } from '@mantine/core';
@@ -9,13 +9,37 @@ import useData from '../../hooks/useData';
 
 const Properties = () => {
 
-    const { posts, isLoading } = useData();
-    const items = posts;
 
+
+    const [searchParams] = useSearchParams();
+
+    const loc = searchParams.get('loc');
+    const bed = searchParams.get('bed');
+    const bath = searchParams.get('bath');
+    const type = searchParams.get('type');
+    const upper = searchParams.get('upper');
+    const lower = searchParams.get('lower');
+
+    console.log(loc)
+
+    const { posts, isLoading } = useData();
+    const filter = loc!==null?posts.filter(item => loc?item.post_loc.includes(loc):item)
+        .filter(item => bed ? parseInt(bed) === item.bed_rooms : item)
+        .filter(item => bath ? parseInt(bath) === item.bath_rooms : item)
+        .filter(item => type ? parseInt(type) === item.post_type : item)
+        .filter(item => parseInt(lower) <= item.price <= parseInt(upper)):posts
+
+
+    console.log(filter)
+
+    const items = filter;
     const [activePage, setPage] = useState(1);
     const itemPerPage = 6;
-
     const pageVisited = (activePage - 1) * itemPerPage;
+
+
+
+
 
 
     return (
@@ -24,8 +48,8 @@ const Properties = () => {
                 <Grid.Col span={15}>
                     {
                         isLoading === false ?
-                        items.slice(pageVisited, pageVisited + itemPerPage).map((post) => (
-                                <Grid key={post.post_id} align='center' className={styles.cardContainer} component={Link} to={`/properties/${post.post_id}`}>
+                            items[0]?items.slice(pageVisited, pageVisited + itemPerPage).map((post) => (
+                                <Grid key={post.post_id} align='center' className={styles.cardContainer} component={Link} to={`/property/${post.post_id}`}>
                                     <Grid.Col span={5}>
                                         <img
                                             className={styles.cardImg}
@@ -57,6 +81,10 @@ const Properties = () => {
                                     </Grid.Col>
                                 </Grid>
                             ))
+                            :
+                            <Container size='lg' mt='13rem' style={{textAlign:'center'}}>
+                                <h1>Sorry No Data</h1>
+                            </Container>
                             :
                             <LoadingOverlay visible={isLoading} overlayBlur={2} />
                     }

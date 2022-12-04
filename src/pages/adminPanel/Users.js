@@ -3,24 +3,19 @@ import React, { useState } from 'react';
 import useData from '../../hooks/useData';
 
 const Users = () => {
-    const { posts } = useData();
-    const items = posts;
+    const { users } = useData();
+    const items = users;
     const [activePage, setPage] = useState(1);
     const itemPerPage = 6;
     const pageVisited = (activePage - 1) * itemPerPage;
 
     const rows = items.slice(pageVisited, pageVisited + itemPerPage).map((element) => (
         <tr key={element.post_id}>
-            <td>
-                <Image src={element.img1}
-                    style={{ width: '4rem', borderRadius: '50%', aspectRatio: '3/2', objectFit: 'contain' }}
-                ></Image>
-            </td>
             <td>{element.user_id}</td>
             <td>{element.user_name}</td>
             <td>{element.user_email}</td>
             <td>
-                <Group position="right" mt="md">
+                <Group mt="md">
                     <Button>Update</Button>
                     <Button color='red'>Remove</Button>
                 </Group>
@@ -41,7 +36,6 @@ const Users = () => {
                 >
                 <thead>
                     <tr>
-                        <th>Post Img</th>
                         <th>Post Id</th>
                         <th>Post Location</th>
                         <th>Price</th>

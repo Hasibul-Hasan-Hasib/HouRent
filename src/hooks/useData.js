@@ -9,15 +9,16 @@ const useData = () => {
     const [reviews, setReviews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
+
     const postUrl = `http://localhost:3100/posts`;
     const userUrl = `http://localhost:3100/users`;
     const bookingsUrl = `http://localhost:3100/bookings`;
     const reviewsUrl = `http://localhost:3100/reviews`;
 
-    console.log(users);
-    console.log(posts);
-    console.log(bookings)
-    console.log(reviews);
+    // console.log(users);
+    // console.log(posts);
+    // console.log(bookings)
+    // console.log(reviews);
 
 
     const fetchData = async () => {

@@ -14,7 +14,7 @@ const CustomCard = ({ cards }) => {
         <>
             {
                 cards.map((card) => (
-                    <Card key={card.post_id} p="md" radius="md" component={Link} to={`/properties/${card.post_id}`} onClick={() => scrollIntoView()} className={styles.card}>
+                    <Card key={card.post_id} p="md" radius="md" component={Link} to={`/property/${card.post_id}`} onClick={() => scrollIntoView()} className={styles.card}>
                         <AspectRatio ratio={1920 / 1080}>
                             <Image src={card.img1} />
                         </AspectRatio>

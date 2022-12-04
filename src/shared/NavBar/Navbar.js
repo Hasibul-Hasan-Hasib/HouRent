@@ -4,12 +4,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo/306779426_1757552851287913_919493399515004179_n.png';
 import { Button, Container, Menu } from '@mantine/core';
 import useAuth from '../../hooks/useAuth';
+import useFilter from '../../hooks/useFilter';
 
 
 
 const NavBar = () => {
 
-    const { logOut, setUser, user, setIsLoading } = useAuth()
+    const { logOut, setUser, user, setIsLoading } = useAuth();
+    const { uloc, bedRooms, bathRooms, utype, ulower, uupper} = useFilter();
+
     const navigate = useNavigate()
     const handleLogout = () => {
         logOut()
@@ -38,20 +41,20 @@ const NavBar = () => {
                                 <Link className={styles.navLink} >Properties</Link>
                             </Menu.Target>
                             <Menu.Dropdown>
-                                <Menu.Item component={Link} to='/properties'>
+                                <Menu.Item component={Link} to={`/properties?loc=${uloc ? uloc : ''}&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=0&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
                                     For Rent
                                 </Menu.Item>
-                                <Menu.Item component={Link} to='/properties'>
+                                <Menu.Item component={Link} to={`/properties?loc=${uloc ? uloc : ''}&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=1&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
                                     For Sell
                                 </Menu.Item>
                                 <Menu.Divider />
-                                <Menu.Item component={Link} to='/properties'>
+                                <Menu.Item component={Link} to={`/properties?loc=Chittagong&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype?utype:''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
                                     Chittagong
                                 </Menu.Item>
-                                <Menu.Item component={Link} to='/properties'>
+                                <Menu.Item component={Link} to={`/properties?loc=Dhaka&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype?utype:''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
                                     Dhaka
                                 </Menu.Item>
-                                <Menu.Item component={Link} to='/properties'>
+                                <Menu.Item component={Link} to={`/properties?loc=Barisal&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype?utype:''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
                                     Barisal
                                 </Menu.Item>
                             </Menu.Dropdown>

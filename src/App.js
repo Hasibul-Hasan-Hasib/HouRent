@@ -17,6 +17,7 @@ import Admin from './shared/Admin/Admin';
 import Users from './pages/adminPanel/Users';
 import PrivateRoute from './shared/PrivateRoute/PrivateRoute';
 import Posts from './pages/adminPanel/Posts';
+import AddPost from './shared/AddPost/AddPost';
 
 
 
@@ -32,10 +33,16 @@ function App() {
         },
         {
           path: 'properties',
-          element: <Properties />
+          element: <Properties />,
+          children:[
+            {
+              path:'*',
+              element: <Properties/>,
+            }
+          ]
         },
         {
-          path: 'properties/:id',
+          path: 'property/:id',
           element: <Property />
         },
         {
@@ -60,6 +67,10 @@ function App() {
             {
               path: '/posts',
               element: <Posts />
+            },
+            {
+              path: '/add-posts',
+              element: <AddPost />
             },
             {
               path: '/saved',

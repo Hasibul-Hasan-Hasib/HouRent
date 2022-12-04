@@ -3,6 +3,7 @@ import { useScrollIntoView } from '@mantine/hooks';
 import styles from './Footer.module.css'
 import { IconPhone, IconChevronRight, IconMail, IconChevronUp, IconBrandFacebook, IconBrandTwitter, IconBrandInstagram, IconBrandLinkedin, IconBrandYoutube, IconMapPin } from '@tabler/icons';
 import { Container, Grid } from '@mantine/core'
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -31,43 +32,43 @@ const Footer = () => {
                     <Grid.Col span={3}>
                         <h2>Useful Links</h2>
                         <div className={styles.align}>
-                            <div className={styles.listAlign}>
+                            <Container component={Link} to='/about' className={styles.listAlign}>
                                 <IconChevronRight size={24} />
                                 <span className={styles.footerLink}>About us</span>
-                            </div>
-                            <div className={styles.listAlign}>
+                            </Container>
+                            <Container component={Link} to='/blog' className={styles.listAlign}>
                                 <IconChevronRight size={24} />
                                 <span className={styles.footerLink}>Blog</span>
-                            </div>
-                            <div className={styles.listAlign}>
+                            </Container>
+                            <Container component={Link} to='/' className={styles.listAlign}>
                                 <IconChevronRight size={24} />
                                 <span className={styles.footerLink}>Pricing</span>
-                            </div>
-                            <div className={styles.listAlign}>
+                            </Container>
+                            <Container component={Link} to='/contact' className={styles.listAlign}>
                                 <IconChevronRight size={24} />
                                 <span className={styles.footerLink}>Contact Us</span>
-                            </div>
+                            </Container>
                         </div>
                     </Grid.Col>
                     <Grid.Col span={3}>
                         <h2>Rent with us</h2>
                         <div className={styles.align}>
-                            <div className={styles.listAlign}>
+                            <Container component={Link} to='/properties' className={styles.listAlign}>
                                 <IconChevronRight size={24} />
                                 <span className={styles.footerLink}>Rent a house</span>
-                            </div>
-                            <div className={styles.listAlign}>
+                            </Container>
+                            <Container component={Link} to='/add-post' className={styles.listAlign}>
                                 <IconChevronRight size={24} />
                                 <span className={styles.footerLink}>Sell a house</span>
-                            </div>
-                            <div className={styles.listAlign}>
+                            </Container>
+                            <Container component={Link} to='/properties' className={styles.listAlign}>
                                 <IconChevronRight size={24} />
                                 <span className={styles.footerLink}>Book Now</span>
-                            </div>
-                            <div className={styles.listAlign}>
+                            </Container>
+                            <Container component={Link} to='/' className={styles.listAlign}>
                                 <IconChevronRight size={24} />
                                 <span className={styles.footerLink}>Privacy</span>
-                            </div>
+                            </Container>
                         </div>
                     </Grid.Col>
                     <Grid.Col span={3}>

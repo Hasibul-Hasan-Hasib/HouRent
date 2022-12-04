@@ -70,8 +70,8 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 const data = [
-    { link: '/admin/users', label: 'Posts', icon: IconBuildingCottage },
-    { link: '/admin/posts', label: 'Users', icon: IconUsers },
+    { link: '/admin/users', label: 'Users', icon: IconUsers },
+    { link: '/admin/posts', label: 'Posts', icon: IconBuildingCottage },
     { link: '', label: 'Booking', icon: IconBrandBooking },
     { link: '', label: 'Comments', icon: IconBrandDisqus },
 ];
