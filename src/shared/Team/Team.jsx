@@ -19,7 +19,7 @@ const Team = () => {
                             />
                             <img
                                 className={`${styles.img} ${styles.img2}`}
-                                src={require('../../assets/images/IMG_20220507_171135-removebg-preview.png')}
+                                src={'/src/assets/images/IMG_20220507_171135-removebg-preview.png'}
                                 alt=''
                             />
                         </div>
@@ -55,7 +55,7 @@ const Team = () => {
                             />
                             <img
                                 className={`${styles.img} ${styles.img4}`}
-                                src={require('../../assets/images/20221124_004709.png')}
+                                src='src/assets/images/20221124_004709.png'
                                 alt=''
                             />
                         </div>
@@ -73,7 +73,7 @@ const Team = () => {
                             />
                             <img
                                 className={`${styles.img} ${styles.img3}`}
-                                src={require('../../assets/images/1641998596872.png')}
+                                src='src/assets/images/1641998596872.png'
                                 alt=''
                             />
                         </div>

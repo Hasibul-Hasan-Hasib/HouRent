@@ -41,6 +41,9 @@ function App() {
             }
           ]
         },
+        // {
+        //   path:'properties/'
+        // },
         {
           path: 'property/:id',
           element: <Property />
