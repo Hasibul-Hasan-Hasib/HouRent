@@ -126,7 +126,7 @@ const Property = () => {
                                 </div>
                             </Grid.Col>
                         </Grid>
-                        <Comment post={post}/>
+                        {/* <Comment post={post}/> */}
                         <Suggestion posts={posts.slice(3, 6)} />
                     </>
                     :
