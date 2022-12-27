@@ -23,14 +23,13 @@ const Properties = () => {
     console.log(loc)
 
     const { posts, isLoading } = useData();
-    const filter = loc!==null?posts.filter(item => loc?item.post_loc.includes(loc):item)
+    const filter = loc!==null?posts.filter(item => loc?item.post_loc.toLowerCase().includes(loc.toLowerCase()):item)
         .filter(item => bed ? parseInt(bed) === item.bed_rooms : item)
         .filter(item => bath ? parseInt(bath) === item.bath_rooms : item)
         .filter(item => type ? parseInt(type) === item.post_type : item)
         .filter(item => parseInt(lower) <= item.price <= parseInt(upper)):posts
 
 
-    console.log(filter)
 
     const items = filter;
     const [activePage, setPage] = useState(1);

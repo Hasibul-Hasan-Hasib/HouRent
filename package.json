@@ -35,10 +35,11 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "test": "vite test",
     "eject": "vite eject",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "host": "vite --host"
   },
   "eslintConfig": {
     "extends": [

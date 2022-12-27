@@ -106,6 +106,10 @@ function App() {
               path: 'admin/posts',
               element: <Posts />
             },
+            {
+              path: 'admin/bookings',
+              element: <Posts />
+            },
           ],
         },
       ]

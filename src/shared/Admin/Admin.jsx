@@ -72,7 +72,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
 const data = [
     { link: '/admin/users', label: 'Users', icon: IconUsers },
     { link: '/admin/posts', label: 'Posts', icon: IconBuildingCottage },
-    { link: '', label: 'Booking', icon: IconBrandBooking },
+    { link: '/admin/bookings', label: 'Booking', icon: IconBrandBooking },
     { link: '', label: 'Comments', icon: IconBrandDisqus },
 ];
 
