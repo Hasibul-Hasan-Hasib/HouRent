@@ -1,7 +1,7 @@
-import { React, useRef } from 'react';
+import { React, useRef, useState } from 'react';
 import styles from './Property.module.css';
 import { Carousel } from '@mantine/carousel';
-import { Badge, Button, Container, Grid, LoadingOverlay } from '@mantine/core';
+import { Badge, Button, Container, Grid, LoadingOverlay, Modal } from '@mantine/core';
 import { IconMapPin } from '@tabler/icons';
 import Autoplay from 'embla-carousel-autoplay';
 import Description from './Description';
@@ -19,6 +19,7 @@ const Property = () => {
     const { id } = useParams();
     const { user } = useAuth();
     const { posts, bookings, isLoading } = useData();
+    const [opened, setOpened] = useState(false);
     // const [name, setName] = useState('');
     // const [email, setEmail] = useState('');
     const userBookings = bookings.filter(booking => booking.user_id === user.uid)
@@ -93,7 +94,14 @@ const Property = () => {
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                     <div className={styles.mapIcon}>
                                         <IconMapPin size={24} />
-                                        <span style={{ marginLeft: '0.5rem' }}>{post ? post.post_loc : 'loading'}</span>
+                                        <Modal
+                                            opened={opened}
+                                            onClose={() => setOpened(false)}
+                                            size="xl"
+                                        >
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14603.24575281821!2d90.40165817856042!3d23.789728086438796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a0f70deb73%3A0x30c36498f90fe23!2sGulshan%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1672586368825!5m2!1sen!2sbd" style={{border:'none',borderRadius:'px'}} width="100%" height="500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </Modal>
+                                        <span onClick={() => setOpened(true)} style={{ marginLeft: '0.5rem' }}>{post ? post.post_loc : 'loading'}</span>
                                     </div>
                                     <div>
                                         <Badge variant='filled' color="cyan">{post ? post.post_type === 0 ? 'Rent' : 'Sell' : 'loading'}</Badge>
