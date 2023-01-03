@@ -1,5 +1,4 @@
 import React from 'react';
-import BannerImg from '../../assets/images/Hotel Booking-pana.svg';
 import styles from './Banner.module.css';
 import {Link} from 'react-router-dom';
 import { Button, Container, Grid } from '@mantine/core';
@@ -19,7 +18,7 @@ const Banner = () => {
                     <Button component={Link} to='/properties' color='cyan'>Find Home Now!</Button>
                 </Grid.Col>
                 <Grid.Col span={5}>
-                    <img src={BannerImg} alt="" />
+                    <img src={'/assets/images/Hotel Booking-pana.svg'} alt="" />
                 </Grid.Col>
             </Grid>
         </Container>

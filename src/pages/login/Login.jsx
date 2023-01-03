@@ -1,5 +1,4 @@
 import React from 'react';
-import IMG from '../../assets/images/Fingerprint-rafiki.svg'
 import { useToggle, upperFirst } from '@mantine/hooks';
 import { useNavigate } from 'react-router-dom';
 import Auth from '../../hooks/useAuth';
@@ -65,7 +64,7 @@ const Login = (props) => {
         <Container size='lg'>
             <Grid align='center' style={{ margin: '5rem 0' }} gutter={40}>
                 <Grid.Col span={6}>
-                    <img src={IMG} alt="" />
+                    <img src={'/assets/images/Fingerprint-rafiki.svg'} alt="" />
                 </Grid.Col>
                 <Grid.Col span={6} style={{ padding: '0 4rem ' }}>
                     <Text size="lg" weight={500}>

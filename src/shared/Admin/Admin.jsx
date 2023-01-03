@@ -9,7 +9,6 @@ import {
     IconBrandDisqus,
     IconBrandBooking,
 } from '@tabler/icons';
-import Logo from '../../assets/logo/logo.png';
 import { Link, Outlet } from 'react-router-dom';
 
 const useStyles = createStyles((theme, _params, getRef) => {
@@ -102,7 +101,7 @@ export default function Admin() {
                     <Navbar width={{ sm: 300 }} p="md">
                         <Navbar.Section grow>
                             <Group className={classes.header} position="apart">
-                                <img width={70} src={Logo} alt="" />
+                                <img width={70} src={'/assets/logo/logo.png'} alt="" />
                                 <Code sx={{ fontWeight: 700 }}>v3.1.2</Code>
                             </Group>
                             {links}

@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './NavBar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../assets/logo/306779426_1757552851287913_919493399515004179_n.png';
 import { Button, Container, Menu } from '@mantine/core';
 import useAuth from '../../hooks/useAuth';
 import useFilter from '../../hooks/useFilter';
@@ -32,7 +31,7 @@ const NavBar = () => {
             <Container size='lg'>
                 <div className={styles.navContainer}>
                     <Link to='/'>
-                        <img src={logo} width='150px' alt="" />
+                        <img src={'/assets/logo/306779426_1757552851287913_919493399515004179_n.png'} width='150px' alt="" />
                     </Link>
                     <div className={styles.align}>
                         <Link className={styles.navLink} to='/' >Home</Link>
