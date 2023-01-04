@@ -72,7 +72,7 @@ const data = [
     { link: '/admin/users', label: 'Users', icon: IconUsers },
     { link: '/admin/posts', label: 'Posts', icon: IconBuildingCottage },
     { link: '/admin/bookings', label: 'Booking', icon: IconBrandBooking },
-    { link: '', label: 'Comments', icon: IconBrandDisqus },
+    { link: '/admin/comments', label: 'Comments', icon: IconBrandDisqus },
 ];
 
 export default function Admin() {

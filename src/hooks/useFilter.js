@@ -10,8 +10,8 @@ const useFilter = () => {
     const [bedRooms, setBedRooms] = useState('');
     const [bathRooms, setBathRooms] = useState('');
     const [utype, setType] = useState('');
-    const [ulower, setLower] = useState(1000000);
-    const [uupper, setUpper] = useState(10000000);
+    const [ulower, setLower] = useState(10000);
+    const [uupper, setUpper] = useState(1000000);
 
 
     return { uloc,bedRooms,bathRooms,utype,ulower,uupper,setLoc,setBedRooms,setBathRooms,setType,setLower,setUpper };

@@ -13,7 +13,7 @@ export default function Featured() {
     const { posts } = useData()
 
     return (
-        <Container size='xl' py='3rem'>
+        <Container size='lg' py='3rem'>
             <h1 
                 style={{textAlign:'center',fontSize:'2.5rem',marginTop:0,marginBottom:'3.5rem'}}
             >
