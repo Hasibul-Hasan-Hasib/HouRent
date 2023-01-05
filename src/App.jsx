@@ -1,5 +1,5 @@
 import './App.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Contact from './pages/contact/Contact';
 import Blog from './pages/blog/Blog';
@@ -18,108 +18,128 @@ import Users from './pages/adminPanel/Users';
 import PrivateRoute from './shared/PrivateRoute/PrivateRoute';
 import Posts from './pages/adminPanel/Posts';
 import AddPost from './shared/AddPost/AddPost';
+import NavBar from './shared/NavBar/Navbar';
+import { Footer } from '@mantine/core';
 
 
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Main />,
-      children: [
-        {
-          path: '',
-          element: <Home />
-        },
-        {
-          path: 'properties',
-          element: <Properties />,
-          children:[
-            {
-              path:'*',
-              element: <Properties/>,
-            }
-          ]
-        },
-        // {
-        //   path:'properties/'
-        // },
-        {
-          path: 'property/:id',
-          element: <Property />
-        },
-        {
-          path: 'blog',
-          element: <Blog />
-        },
-        {
-          path: 'contact',
-          element: <Contact />
-        },
-        {
-          path: 'about',
-          element: <About />
-        },
-        {
-          element: <PrivateRoute />,
-          children: [
-            {
-              path: '/bookings',
-              element: <Booking />
-            },
-            {
-              path: '/posts',
-              element: <Posts />
-            },
-            {
-              path: '/add-posts',
-              element: <AddPost />
-            },
-            {
-              path: '/saved',
-              element: <Saved />
-            },
-          ],
-        },
-        {
-          path: 'login',
-          element: <Login />
-        },
-      ]
-    },
-    {
-      path: '/admin-login',
-      element: <AdminLogin />
-    },
-    {
-      path: '/',
-      element: <Admin />,
-      children: [
-        {
-          element: <PrivateRoute type='admin' />,
-          children: [
-            {
-              path: '/admin/users',
-              element: <Users />
-            },
-            {
-              path: 'admin/posts',
-              element: <Posts />
-            },
-            {
-              path: 'admin/bookings',
-              element: <Posts />
-            },
-          ],
-        },
-      ]
-    },
-    { path: '*', element: <NotFound /> }
-  ])
+  // const router = createBrowserRouter([
+  //   {
+  //     path: '/',
+  //     element: <Main />,
+  //     children: [
+  //       {
+  //         path: '',
+  //         element: <Home />
+  //       },
+  //       {
+  //         path: 'properties',
+  //         element: <Properties />,
+  //         children:[
+  //           {
+  //             path:'*',
+  //             element: <Properties/>,
+  //           }
+  //         ]
+  //       },
+  //       // {
+  //       //   path:'properties/'
+  //       // },
+  //       {
+  //         path: 'property/:id',
+  //         element: <Property />
+  //       },
+  //       {
+  //         path: 'blog',
+  //         element: <Blog />
+  //       },
+  //       {
+  //         path: 'contact',
+  //         element: <Contact />
+  //       },
+  //       {
+  //         path: 'about',
+  //         element: <About />
+  //       },
+  //       {
+  //         element: <PrivateRoute />,
+  //         children: [
+  //           {
+  //             path: '/bookings',
+  //             element: <Booking />
+  //           },
+  //           {
+  //             path: '/posts',
+  //             element: <Posts />
+  //           },
+  //           {
+  //             path: '/add-posts',
+  //             element: <AddPost />
+  //           },
+  //           {
+  //             path: '/saved',
+  //             element: <Saved />
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         path: 'login',
+  //         element: <Login />
+  //       },
+  //     ]
+  //   },
+  //   {
+  //     path: '/admin-login',
+  //     element: <AdminLogin />
+  //   },
+  //   {
+  //     path: '/',
+  //     element: <Admin />,
+  //     children: [
+  //       {
+  //         element: <PrivateRoute type='admin' />,
+  //         children: [
+  //           {
+  //             path: '/admin/users',
+  //             element: <Users />
+  //           },
+  //           {
+  //             path: 'admin/posts',
+  //             element: <Posts />
+  //           },
+  //           {
+  //             path: 'admin/bookings',
+  //             element: <Posts />
+  //           },
+  //         ],
+  //       },
+  //     ]
+  //   },
+  //   { path: '*', element: <NotFound /> }
+  // ])
   return (
     <div>
+      {/* <RouterProvider router={router}></RouterProvider> */}
       <AuthContext>
-        <RouterProvider router={router}></RouterProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Main />}>
+              <Route path='/' element={<Home />}></Route>
+              <Route path='/home' element={<Home />}></Route>
+              <Route path='/blog' element={<Blog />}></Route>
+              <Route path='/about' element={<About />}></Route>
+              <Route path='/contact' element={<Contact />}></Route>
+            </Route>
+            <Route path='admin' element={<Admin/>}>
+              <Route path='users' element={<Users/>}/>
+              <Route path='posts' element={<Posts/>}/>
+              <Route path='bookings' element={<Booking/>}/>
+              <Route path='bookings' element={<Posts/>}/>
+            </Route>
+            <Route path='*' element={<NotFound />}></Route>
+          </Routes>
+        </BrowserRouter>
       </AuthContext>
     </div>
   );
