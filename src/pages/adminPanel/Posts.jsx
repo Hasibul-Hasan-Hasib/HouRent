@@ -1,5 +1,6 @@
 import { ActionIcon, Button, Container, Group, Image, Pagination, Table } from '@mantine/core';
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 import { IconRefresh, IconTrash } from '@tabler/icons';
 import useData from '../../hooks/useData';
 import useAuth from '../../hooks/useAuth';
@@ -44,7 +45,7 @@ const Posts = () => {
         <Container size='lg' mt='5rem'>
             <Group position='apart' mt="md">
                 <Pagination size="md" color='cyan' siblings={3} page={activePage} onChange={setPage} total={Math.ceil(items.length / itemPerPage)} />
-                <Button color='cyan'>Add Post</Button>
+                <Button component={Link} to='add-posts' color='cyan'>Add Post</Button>
             </Group>
             <Table
                 mt='2rem'

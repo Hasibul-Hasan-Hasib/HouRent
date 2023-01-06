@@ -54,7 +54,7 @@ const Booking = () => {
                         <Grid.Col onClick={() => { navigate(`/property/${booking.post_id}`) }} span={3}>
                             <img className={styles.img} src={booking.img1} alt="" />
                         </Grid.Col>
-                        <Grid.Col onClick={() => { navigate(`/properties/${booking.post_id}`) }} span={6}>
+                        <Grid.Col onClick={() => { navigate(`/property/${booking.post_id}`) }} span={6}>
                             <h2>BDT - {booking.price.toLocaleString(undefined, { maximumFractionDigits: 2 })} Tk</h2>
                             <div className={styles.infoContainer}>
                                 <IconMapPin size={24} />

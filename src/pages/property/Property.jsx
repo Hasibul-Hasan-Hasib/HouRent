@@ -5,7 +5,6 @@ import { Badge, Button, Container, Grid, LoadingOverlay, Modal } from '@mantine/
 import { IconMapPin } from '@tabler/icons';
 import Autoplay from 'embla-carousel-autoplay';
 import Description from './Description';
-import Comment from './Comment';
 import Suggestion from './Suggestion';
 import { Form, useNavigate, useParams } from 'react-router-dom';
 import useData from '../../hooks/useData';
@@ -20,8 +19,6 @@ const Property = () => {
     const { user } = useAuth();
     const { posts, bookings, isLoading } = useData();
     const [opened, setOpened] = useState(false);
-    // const [name, setName] = useState('');
-    // const [email, setEmail] = useState('');
     const userBookings = bookings.filter(booking => booking.user_id === user.uid)
     const post = posts.find(post => post.post_id === parseInt(id));
     const dep = userBookings.filter(booking => booking.post_id === post.post_id)
@@ -113,20 +110,6 @@ const Property = () => {
                             {/* booking section */}
 
                             <Grid.Col component={Form} span={11} className={styles.bookingSectionContainer}>
-                                {/* <TextInput
-                                    className={styles.inputElements}
-                                    placeholder="Your name"
-                                    withAsterisk
-                                    onChange={(event) => setName(event.currentTarget.value)}
-                                /> */}
-                                {/* <TextInput placeholder="Your email" icon={<IconAt size={14} />}
-                                    onChange={(event) => setEmail(event.currentTarget.value)}
-                                /> */}
-                                {/* <TextInput
-                                    className={styles.inputElements}
-                                    placeholder="Phone"
-                                    withAsterisk
-                                /> */}
                                 <Description key={post ? post.post_id : ''} data={post ? post : []} />
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '0.5rem' }}>
                                     <h3>BDT - {post ? post.price.toLocaleString(undefined, { maximumFractionDigits: 2 }) : ''} Tk</h3>

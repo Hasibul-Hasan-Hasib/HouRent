@@ -4,7 +4,6 @@ import CustomCard from "../../shared/CustomCard/CustomCard";
 export default function Suggestion({ posts }) {
 
   let width = window.innerWidth;
-  console.log(width);
 
   return (
     <Container size="xl" py="3rem">

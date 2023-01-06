@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './NavBar.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Button, Container, Menu } from '@mantine/core';
 import useAuth from '../../hooks/useAuth';
 import useFilter from '../../hooks/useFilter';
@@ -10,7 +10,7 @@ import useFilter from '../../hooks/useFilter';
 const NavBar = () => {
 
     const { logOut, setUser, user, setIsLoading } = useAuth();
-    const { uloc, bedRooms, bathRooms, utype, ulower, uupper} = useFilter();
+    const { uloc, bedRooms, bathRooms, utype, ulower, uupper } = useFilter();
 
     const navigate = useNavigate()
     const handleLogout = () => {
@@ -30,14 +30,19 @@ const NavBar = () => {
         <>
             <Container size='lg'>
                 <div className={styles.navContainer}>
-                    <Link to='/'>
+                    <Link to='/' >
                         <img src={'/assets/logo/306779426_1757552851287913_919493399515004179_n.png'} width='150px' alt="" />
                     </Link>
                     <div className={styles.align}>
-                        <Link className={styles.navLink} to='/' >Home</Link>
+                        <NavLink
+                            to='/'
+                            className={({ isActive }) =>
+                                isActive ? styles.activeLink : styles.navLink
+                            }
+                        >Home</NavLink>
                         <Menu shadow="md" width={200} trigger='hover'>
                             <Menu.Target>
-                                <Link className={styles.navLink} >Properties</Link>
+                                <NavLink to='/properties' className={styles.navLink}>Properties</NavLink>
                             </Menu.Target>
                             <Menu.Dropdown>
                                 <Menu.Item component={Link} to={`/properties?loc=${uloc ? uloc : ''}&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=0&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
@@ -47,21 +52,24 @@ const NavBar = () => {
                                     For Sell
                                 </Menu.Item>
                                 <Menu.Divider />
-                                <Menu.Item component={Link} to={`/properties?loc=Chittagong&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype?utype:''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
+                                <Menu.Item component={Link} to={`/properties?loc=Chittagong&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype ? utype : ''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
                                     Chittagong
                                 </Menu.Item>
-                                <Menu.Item component={Link} to={`/properties?loc=Dhaka&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype?utype:''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
+                                <Menu.Item component={Link} to={`/properties?loc=Dhaka&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype ? utype : ''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
                                     Dhaka
                                 </Menu.Item>
-                                <Menu.Item component={Link} to={`/properties?loc=Barisal&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype?utype:''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
+                                <Menu.Item component={Link} to={`/properties?loc=Barisal&bed=${bedRooms ? bedRooms : ''}&bath=${bathRooms ? bathRooms : ''}&type=${utype ? utype : ''}&upper=${uupper ? uupper : ''}&lower=${ulower ? ulower : ''}`}>
                                     Barisal
                                 </Menu.Item>
                             </Menu.Dropdown>
                         </Menu>
-                        <Link className={styles.navLink} to='/blog' >Blog</Link>
+                        <NavLink to='/blog'
+                            className={({ isActive }) =>
+                                isActive ? styles.activeLink : styles.navLink
+                            }>Blog</NavLink>
                         <Menu shadow="md" width={200} trigger='hover'>
                             <Menu.Target>
-                                <Link className={styles.navLink}>Pages</Link>
+                                <NavLink className={styles.navLink}>Pages</NavLink>
                             </Menu.Target>
                             <Menu.Dropdown>
                                 <Menu.Item component={Link} to='/contact'>
@@ -87,7 +95,7 @@ const NavBar = () => {
                                     <Menu.Item component={Link} to={`/bookings`}>
                                         bookings
                                     </Menu.Item>
-                                    <Menu.Item component={Link} to={`/posts`}>
+                                    <Menu.Item component={Link} to={`/my-posts`}>
                                         My Posts
                                     </Menu.Item>
                                     <Menu.Item component={Link} onClick={handleLogout}>

@@ -20,7 +20,6 @@ const Properties = () => {
     const upper = searchParams.get('upper');
     const lower = searchParams.get('lower');
 
-    console.log(loc)
 
     const { posts, isLoading } = useData();
     const filter = loc!==null?posts.filter(item => loc?item.post_loc.toLowerCase().includes(loc.toLowerCase()):item)
@@ -48,7 +47,7 @@ const Properties = () => {
                     {
                         isLoading === false ?
                             items[0]?items.slice(pageVisited, pageVisited + itemPerPage).map((post) => (
-                                <Grid key={post.post_id} align='center' className={styles.cardContainer} component={Link} to={`/property/${post.post_id}`}>
+                                <Grid key={post.post_id} align='center' className={styles.cardContainer} component={Link} to={`/properties/${post.post_id}`}>
                                     <Grid.Col span={5}>
                                         <img
                                             className={styles.cardImg}
