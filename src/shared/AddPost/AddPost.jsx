@@ -1,13 +1,17 @@
 import React from 'react';
 import { Button, Container, NumberInput, Select, SimpleGrid, TextInput } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddPost = () => {
+
+    const navigate = useNavigate();
+
     return (
         <Container size='lg' my='5rem'>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <h1>Add New Post</h1>
-                <Button>Go Back</Button>
+                <Button onClick={()=>{navigate(-1)}}>Go Back</Button>
             </div>
             <Container size='lg'>
                 <SimpleGrid

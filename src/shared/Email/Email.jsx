@@ -62,7 +62,7 @@ const Email = () => {
                         // onChange={(event) => setMessage(event.currentTarget.value)}
                         name="message"
                     />
-                    <Button type='submit' size='lg' color="cyan" className={styles.submitBtn}>
+                    <Button onClick={()=>{sendEmail()}} type='submit' size='lg' color="cyan" className={styles.submitBtn}>
                         Send a Massage
                     </Button>
                 </form>
