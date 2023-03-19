@@ -10,10 +10,10 @@ const useData = () => {
     const [isLoading, setIsLoading] = useState(false);
 
 
-    const postUrl = `http://localhost:3100/posts`;
-    const userUrl = `http://localhost:3100/users`;
-    const bookingsUrl = `http://localhost:3100/bookings`;
-    const reviewsUrl = `http://localhost:3100/reviews`;
+    const postUrl = `https://hourent-server.onrender.com/posts`;
+    const userUrl = `https://hourent-server.onrender.com/users`;
+    const bookingsUrl = `https://hourent-server.onrender.com/bookings`;
+    const reviewsUrl = `https://hourent-server.onrender.com/reviews`;
 
     // console.log(users);
     // console.log(posts);

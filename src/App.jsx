@@ -110,39 +110,7 @@ function App() {
   return (
     <div>
       <AuthContext>
-        {/* <RouterProvider router={router}></RouterProvider> */}
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Main />}>
-              <Route index element={<Home />}></Route>
-              <Route path='properties' element={<Properties />} />
-              <Route path='properties/:id' element={<Property />} />
-              <Route path='blog' element={<Blog />}></Route>
-              <Route path='about' element={<About />}></Route>
-              <Route path='contact' element={<Contact />}></Route>
-              <Route path='login' element={<Login />} />
-              <Route path='' element={<PrivateOutlet />}>
-                <Route path='saved' element={<Saved />}></Route>
-                <Route path='my-posts' element={<Posts />}></Route>
-                <Route path='my-posts/add-posts' element={<AddPost />}></Route>
-                <Route path='bookings' element={<Booking />}></Route>
-              </Route>
-            </Route>
-
-            <Route path='admin-login' element={<AdminLogin />} />
-            <Route path='admin' element={<Admin />}>
-              <Route path='' element={<PrivateOutlet type='admin' />}>
-                <Route index element={<Users />} />
-                <Route path='users' element={<Users />} />
-                <Route path='posts' element={<Posts />} />
-                <Route path='posts/add-posts' element={<AddPost />}></Route>
-                <Route path='bookings' element={<Booking />} />
-                <Route path='comments' element={<Posts />} />
-              </Route>
-            </Route>
-            <Route path='*' element={<NotFound />}></Route>
-          </Routes>
-        </BrowserRouter>
+        <RouterProvider router={router}></RouterProvider>
       </AuthContext>
     </div>
   );
