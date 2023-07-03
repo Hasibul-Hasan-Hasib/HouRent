@@ -64,11 +64,19 @@ const useFirebase = () => {
         });
         return unsubscribe;
     }, [])
-    
 
-    const logOut = () => {
-        setIsLoading(true)
-        return signOut(auth)
+
+    const logOut = async () => {
+        try{
+            setIsLoading(true);
+            await signOut(auth);
+            setUser({});
+            setIsLoading(false);
+        }
+        catch{
+            setIsLoading(false);
+            setError(error);
+        }
     }
 
     return {
