@@ -60,6 +60,19 @@ const Login = (props) => {
             })
     }
 
+
+    // const handleEmailSignIn = () => {
+    //     signInUsingEmail()
+    //         .then(result => {
+    //             setUser(result.user)
+    //             navigate(-1)
+    //         })
+    //         .catch(error => {
+    //             setError(error.message)
+    //         })
+    // }
+
+
     return (
         <Container size='lg'>
             <Grid align='center' style={{ margin: '5rem 0' }} gutter={40}>

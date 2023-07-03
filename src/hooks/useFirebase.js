@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../firebase/firebase.init";
-import { GoogleAuthProvider, GithubAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, GithubAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, EmailAuthProvider } from "firebase/auth";
 
 
 initializeAuthentication()
@@ -11,22 +11,41 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
-    const signInUsingGooglePopup = () => {
-        setIsLoading(true)
-        const googleProvider = new GoogleAuthProvider();
-        if (googleProvider) {
-            setIsLoading(false)
+    const signInUsingGooglePopup = async () => {
+        try{
+            setIsLoading(true);
+            const googleProvider = new GoogleAuthProvider();
+            const result = await signInWithPopup(auth, googleProvider);
+            setIsLoading(false);
+            return result;
         }
-        return signInWithPopup(auth, googleProvider)
+        catch{
+            setIsLoading(false);
+            setError(error);
+        }
     }
 
-    const signInUsingGithubPopup = () => {
-        setIsLoading(true)
-        const githubProvider = new GithubAuthProvider();
-        if (githubProvider) {
-            setIsLoading(false)
+    // const signInUsingEmail = () => {
+    //     setIsLoading(true)
+    //     const emailProvider = new EmailAuthProvider();
+    //     if (emailProvider) {
+    //         setIsLoading(false)
+    //     }
+    //     return signInWithPopup(auth, emailProvider)
+    // }
+
+    const signInUsingGithubPopup = async () => {
+        try{
+            setIsLoading(true);
+            const githubProvider = new GithubAuthProvider();
+            const result = await signInWithPopup(auth, githubProvider);
+            setIsLoading(false);
+            return result;
         }
-        return signInWithPopup(auth, githubProvider)
+        catch{
+            setIsLoading(false);
+            setError(error);
+        }
     }
 
 
@@ -54,6 +73,7 @@ const useFirebase = () => {
         user,
         signInUsingGooglePopup,
         signInUsingGithubPopup,
+        // signInUsingEmail,
         error,
         setError,
         setUser,
