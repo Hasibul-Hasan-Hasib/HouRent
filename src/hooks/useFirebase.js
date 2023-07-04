@@ -12,41 +12,34 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const signInUsingGooglePopup = async () => {
-        try{
+        try {
             setIsLoading(true);
             const googleProvider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, googleProvider);
             setIsLoading(false);
             return result;
         }
-        catch{
+        catch {
             setIsLoading(false);
             setError(error);
         }
     }
 
-    // const signInUsingEmail = () => {
-    //     setIsLoading(true)
-    //     const emailProvider = new EmailAuthProvider();
-    //     if (emailProvider) {
-    //         setIsLoading(false)
-    //     }
-    //     return signInWithPopup(auth, emailProvider)
-    // }
 
     const signInUsingGithubPopup = async () => {
-        try{
+        try {
             setIsLoading(true);
             const githubProvider = new GithubAuthProvider();
             const result = await signInWithPopup(auth, githubProvider);
             setIsLoading(false);
             return result;
         }
-        catch{
+        catch {
             setIsLoading(false);
             setError(error);
         }
     }
+
 
 
 
@@ -56,8 +49,8 @@ const useFirebase = () => {
             try {
                 user ? setUser(user) : setUser({});
                 setIsLoading(false);
-            } 
-            catch{
+            }
+            catch {
                 setIsLoading(false);
                 setError(error);
             }
@@ -67,13 +60,13 @@ const useFirebase = () => {
 
 
     const logOut = async () => {
-        try{
+        try {
             setIsLoading(true);
             await signOut(auth);
             setUser({});
             setIsLoading(false);
         }
-        catch{
+        catch {
             setIsLoading(false);
             setError(error);
         }

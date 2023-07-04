@@ -35,7 +35,7 @@ const Login = (props) => {
         },
     });
 
-    const { signInUsingGooglePopup, signInUsingGithubPopup, setError, setUser } = Auth();
+    const { signInUsingGooglePopup, signInUsingGithubPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword, setError, setUser } = Auth();
     const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
@@ -61,16 +61,42 @@ const Login = (props) => {
     }
 
 
-    // const handleEmailSignIn = () => {
-    //     signInUsingEmail()
-    //         .then(result => {
-    //             setUser(result.user)
-    //             navigate(-1)
-    //         })
-    //         .catch(error => {
-    //             setError(error.message)
-    //         })
-    // }
+    const handleEmailRegister = async (e) => {
+        e.preventDefault();
+        setIsLoading(true)
+        await createUserWithEmailAndPassword(auth, form.values.email, form.values.password)
+            .then((userCredential) => {
+                setUser(userCredential.user)
+                setIsLoading(false);
+                navigate('/home')
+                console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setIsLoading(false)
+                console.log(errorCode, errorMessage)
+            });
+    }
+
+    const handleEmailSignIn = async (e) => {
+        e.preventDefault();
+        setIsLoading(true)
+        await signInWithEmailAndPassword(auth, form.values.email, form.values.password)
+            .then((userCredential) => {
+                setUser(userCredential.user)
+                setIsLoading(false);
+                navigate('/home')
+                console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setIsLoading(false)
+                console.log(errorCode, errorMessage)
+            });
+    }
+
 
 
     return (
@@ -142,7 +168,7 @@ const Login = (props) => {
                                     ? 'Already have an account? Login'
                                     : "Don't have an account? Register"}
                             </Anchor>
-                            <Button color='cyan' type="submit">{upperFirst(type)}</Button>
+                            <Button color='cyan' type="submit" onClick={type==='register'?()=>handleEmailRegister():handleEmailSignIn()}>{upperFirst(type)}</Button>
                         </Group>
                     </form>
                 </Grid.Col>
