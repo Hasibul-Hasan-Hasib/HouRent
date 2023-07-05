@@ -35,7 +35,7 @@ const Login = (props) => {
         },
     });
 
-    const { signInUsingGooglePopup, signInUsingGithubPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword, setError, setUser } = Auth();
+    const { signInUsingGooglePopup, signInUsingGithubPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, setError, setUser, auth, setIsLoading } = Auth();
     const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
@@ -68,7 +68,7 @@ const Login = (props) => {
             .then((userCredential) => {
                 setUser(userCredential.user)
                 setIsLoading(false);
-                navigate('/home')
+                navigate(-1)
                 console.log(user);
             })
             .catch((error) => {
@@ -78,15 +78,17 @@ const Login = (props) => {
                 console.log(errorCode, errorMessage)
             });
     }
+    
 
     const handleEmailSignIn = async (e) => {
         e.preventDefault();
+        console.log(form.values)
         setIsLoading(true)
         await signInWithEmailAndPassword(auth, form.values.email, form.values.password)
             .then((userCredential) => {
                 setUser(userCredential.user)
                 setIsLoading(false);
-                navigate('/home')
+                navigate(-1)
                 console.log(user);
             })
             .catch((error) => {
@@ -168,7 +170,11 @@ const Login = (props) => {
                                     ? 'Already have an account? Login'
                                     : "Don't have an account? Register"}
                             </Anchor>
-                            <Button color='cyan' type="submit" onClick={type==='register'?()=>handleEmailRegister():handleEmailSignIn()}>{upperFirst(type)}</Button>
+                            {
+                                type === 'register' ?
+                                    <Button color='cyan' type="submit" onClick={handleEmailRegister}>Register</Button>
+                                    :
+                                    <Button color='cyan' type="submit" onClick={handleEmailSignIn}>Login</Button>}
                         </Group>
                     </form>
                 </Grid.Col>

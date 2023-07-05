@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './NavBar.module.css';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Button, Container, Menu } from '@mantine/core';
+import { Button, Container, Menu, Tooltip } from '@mantine/core';
 import useAuth from '../../hooks/useAuth';
 import useFilter from '../../hooks/useFilter';
 
@@ -86,7 +86,9 @@ const NavBar = () => {
                         {user?.email ?
                             <Menu shadow="md" width={200} trigger='hover'>
                                 <Menu.Target>
-                                    <img className={`${styles.navLink} ${styles.navImg}`} width={35} src={user.photoURL} alt="non" />
+                                    <Tooltip position='left' color='cyan' label={user.email}>
+                                        <img className={`${styles.navLink} ${styles.navImg}`} width={35} src={user.photoURL} alt={user.email} />
+                                    </Tooltip>
                                 </Menu.Target>
                                 <Menu.Dropdown>
                                     <Menu.Item component={Link} to={`/saved`}>
